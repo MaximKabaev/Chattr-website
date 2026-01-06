@@ -2,8 +2,8 @@ import Link from "next/link";
 import styles from "./privacy.module.css";
 
 export const metadata = {
-  title: "Политика конфиденциальности - Chatter",
-  description: "Политика конфиденциальности приложения Chatter для iOS",
+  title: "Политика конфиденциальности - Chattr",
+  description: "Политика конфиденциальности приложения Chattr для iOS",
 };
 
 export default function PrivacyPolicy() {
@@ -20,7 +20,7 @@ export default function PrivacyPolicy() {
         <section className={styles.section}>
           <h2>Введение</h2>
           <p>
-            Chatter (&quot;мы&quot;, &quot;наш&quot; или &quot;приложение&quot;) стремится защитить вашу конфиденциальность.
+            Chattr (&quot;мы&quot;, &quot;наш&quot; или &quot;приложение&quot;) стремится защитить вашу конфиденциальность.
             Данная Политика конфиденциальности объясняет, как мы обрабатываем вашу информацию при использовании нашего приложения для iOS.
           </p>
         </section>
@@ -28,7 +28,7 @@ export default function PrivacyPolicy() {
         <section className={styles.section}>
           <h2>Сбор информации</h2>
           <p>
-            Chatter разработан с учётом конфиденциальности. Мы не собираем, не храним и не передаём
+            Chattr разработан с учётом конфиденциальности. Мы не собираем, не храним и не передаём
             какие-либо персональные данные на внешние серверы. Все ваши данные остаются на вашем устройстве.
           </p>
         </section>
@@ -44,7 +44,7 @@ export default function PrivacyPolicy() {
         <section className={styles.section}>
           <h2>Сторонние сервисы</h2>
           <p>
-            Chatter не использует сторонние сервисы аналитики, рекламы или отслеживания.
+            Chattr не использует сторонние сервисы аналитики, рекламы или отслеживания.
           </p>
         </section>
 

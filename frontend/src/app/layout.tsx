@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Chatter",
-  description: "Chatter - Ваш iOS мессенджер",
+  title: "Chattr",
+  description: "Chattr - Ваш iOS мессенджер",
   icons: {
     icon: "/app-icon.png",
     apple: "/apple-touch-icon.png",

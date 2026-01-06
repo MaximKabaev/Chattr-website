@@ -14,7 +14,7 @@ export default function Home() {
           height={120}
           priority
         />
-        <h1 className={styles.title}>Chatter</h1>
+        <h1 className={styles.title}>Chattr</h1>
         <p className={styles.tagline}>Ваш iOS мессенджер</p>
 
         <nav className={styles.nav}>
@@ -28,7 +28,7 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-        <p>&copy; {new Date().getFullYear()} Chatter. Все права защищены.</p>
+        <p>&copy; {new Date().getFullYear()} Chattr. Все права защищены.</p>
       </footer>
     </div>
   );
