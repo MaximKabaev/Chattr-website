@@ -1,0 +1,80 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.appIcon {
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.message {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .message {
+    color: #ddd;
+  }
+}
+
+.openButton {
+  display: inline-block;
+  background-color: #0070f3;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.875rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.openButton:hover {
+  background-color: #0060df;
+}
+
+.hint {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .hint {
+    color: #999;
+  }
+}
+
+.footer {
+  margin-top: auto;
+  padding-top: 4rem;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+@media (prefers-color-scheme: dark) {
+  .footer {
+    color: #999;
+  }
+}

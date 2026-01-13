@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "ZJ78K39LD9.app.arc-chat",
+        "paths": ["/invite/*"]
+      }
+    ]
+  }
+}
