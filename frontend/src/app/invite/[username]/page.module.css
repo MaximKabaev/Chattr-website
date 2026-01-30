@@ -58,12 +58,31 @@
   font-size: 0.9rem;
   color: #666;
   margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
   .hint {
     color: #999;
   }
+}
+
+.appStoreButton {
+  display: inline-block;
+  background-color: transparent;
+  color: #0070f3;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  border: 2px solid #0070f3;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.appStoreButton:hover {
+  background-color: #0070f3;
+  color: white;
 }
 
 .footer {
