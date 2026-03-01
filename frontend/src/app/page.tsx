@@ -66,9 +66,9 @@ export default function Home() {
                 </svg>
                 Скачать в App Store
               </a>
-              <a href="mailto:mkabaevuk@gmail.com" className={styles.secondaryCta}>
+              <Link href="/support" className={styles.secondaryCta}>
                 Связаться с нами
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -172,9 +172,12 @@ export default function Home() {
             <Link href="/privacy" className={styles.footerLink}>
               Конфиденциальность
             </Link>
-            <a href="mailto:mkabaevuk@gmail.com" className={styles.footerLink}>
+            <Link href="/support" className={styles.footerLink}>
               Поддержка
-            </a>
+            </Link>
+            <Link href="/data-deletion" className={styles.footerLink}>
+              Удаление данных
+            </Link>
             <a href={APP_STORE_URL} className={styles.footerLink}>
               App Store
             </a>
