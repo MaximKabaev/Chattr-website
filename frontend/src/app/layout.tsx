@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Chattr",
-  description: "Chattr - Ваш iOS мессенджер",
+  title: "Chattr — Приватный мессенджер",
+  description:
+    "Chattr — безопасный мессенджер для iOS. Никакого сбора данных, никакой слежки. Просто общение.",
   icons: {
     icon: "/app-icon.png",
     apple: "/apple-touch-icon.png",
