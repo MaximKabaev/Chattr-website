@@ -1,13 +1,13 @@
 import Image from "next/image";
 import { Metadata } from "next";
 import styles from "./page.module.css";
+import { StoreButtons } from "./StoreButtons";
 
 interface PageProps {
   params: Promise<{ inviteCode: string }>;
 }
 
 const APP_STORE_ID = "6757166779";
-const APP_STORE_URL = `https://apps.apple.com/app/chattr/id${APP_STORE_ID}`;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { inviteCode } = await params;
@@ -43,9 +43,7 @@ export default async function GroupInvitePage({ params }: PageProps) {
 
         <p className={styles.hint}>Нет приложения?</p>
 
-        <a href={APP_STORE_URL} className={styles.appStoreButton}>
-          Скачать в App Store
-        </a>
+        <StoreButtons />
       </main>
 
       <footer className={styles.footer}>
