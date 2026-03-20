@@ -75,7 +75,7 @@
   margin-bottom: 0.25rem;
 }
 
-.appStoreButton {
+.storeButton {
   display: inline-block;
   color: var(--green-500);
   font-size: 1rem;
@@ -87,9 +87,16 @@
   transition: border-color 0.15s, color 0.15s;
 }
 
-.appStoreButton:hover {
+.storeButton:hover {
   border-color: var(--green-500);
   color: var(--green-600);
+}
+
+.storeLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .footer {

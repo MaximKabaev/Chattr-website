@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "app.arcchat.chattr",
+    "sha256_cert_fingerprints": ["79:F9:1E:9C:7B:DB:DD:7F:7C:79:6A:77:8B:9C:74:52:0B:28:A2:1E:34:80:FF:84:AE:68:48:49:84:52:97:B7"]
+  }
+}]

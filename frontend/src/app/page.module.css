@@ -187,7 +187,8 @@
   transform: translateY(0);
 }
 
-.appleIcon {
+.appleIcon,
+.playIcon {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
@@ -296,6 +297,13 @@
   font-size: 1.05rem;
   line-height: 1.6;
   margin-bottom: 2rem;
+}
+
+.ctaCtas {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* ===== Footer ===== */
