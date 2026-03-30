@@ -1,8 +1,16 @@
-[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "app.arcchat.chattr",
-    "sha256_cert_fingerprints": ["79:F9:1E:9C:7B:DB:DD:7F:7C:79:6A:77:8B:9C:74:52:0B:28:A2:1E:34:80:FF:84:AE:68:48:49:84:52:97:B7"]
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.arcchat.chattr",
+      "sha256_cert_fingerprints": [
+        "79:F9:1E:9C:7B:DB:DD:7F:7C:79:6A:77:8B:9C:74:52:0B:28:A2:1E:34:80:FF:84:AE:68:48:49:84:52:97:B7",
+        "2E:A6:77:D8:50:91:E2:59:85:96:39:2B:D0:3C:21:83:56:A5:2B:20:7D:2E:53:9A:F9:2B:EA:91:74:42:90:B4"
+      ]
+    }
   }
-}]
+]
