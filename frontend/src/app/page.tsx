@@ -25,6 +25,9 @@ export default function Home() {
             <Link href="/privacy" className={styles.headerLink}>
               Конфиденциальность
             </Link>
+            <Link href="/terms" className={styles.headerLink}>
+              Условия
+            </Link>
             <a href={APP_STORE_URL} className={styles.headerCta}>
               Скачать
             </a>
@@ -198,6 +201,12 @@ export default function Home() {
           <nav className={styles.footerNav}>
             <Link href="/privacy" className={styles.footerLink}>
               Конфиденциальность
+            </Link>
+            <Link href="/terms" className={styles.footerLink}>
+              Условия использования
+            </Link>
+            <Link href="/refund" className={styles.footerLink}>
+              Возврат средств
             </Link>
             <Link href="/support" className={styles.footerLink}>
               Поддержка
