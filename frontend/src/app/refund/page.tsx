@@ -100,7 +100,7 @@ export default function RefundPolicy() {
         <section className={styles.section}>
           <h2>Связаться с нами</h2>
           <p>
-            Кабаев Максим Владимирович
+            {/* Кабаев Максим Владимирович
             <br />
             Адрес: 3-я улица Ямского Поля, 2к16, г. Москва
             <br />
@@ -112,7 +112,7 @@ export default function RefundPolicy() {
             Телефон:{" "}
             <a href="tel:+79261011107" className={styles.emailLink}>
               +7 (926) 101-11-07
-            </a>
+            </a> */}
           </p>
         </section>
       </main>

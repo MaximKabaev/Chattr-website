@@ -43,7 +43,7 @@ export default function SupportPage() {
           </a>
         </div>
 
-        <div className={styles.card}>
+        {/* <div className={styles.card}>
           <div className={styles.emailIcon}>
             <svg
               viewBox="0 0 24 24"
@@ -71,7 +71,7 @@ export default function SupportPage() {
             <br />
             Адрес: 3-я улица Ямского Поля, 2к16, г. Москва
           </p>
-        </div>
+        </div> */}
 
         <div className={styles.note}>
           <p>
