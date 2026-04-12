@@ -227,6 +227,9 @@ export default function Home() {
           <p className={styles.copyright}>
             &copy; {new Date().getFullYear()} Chattr. Все права защищены.
           </p>
+          <p className={styles.legal}>
+            ИП Кабаев Максим Владимирович · ИНН: 973300361404 · ОГРНИП: 326150000015353
+          </p>
         </div>
       </footer>
     </div>
