@@ -2,8 +2,8 @@ import Link from "next/link";
 import styles from "./pricing.module.css";
 
 export const metadata = {
-  title: "Поддержать Chattr",
-  description: "Поддержите развитие Chattr",
+  title: "Chattr Pro",
+  description: "Подписка Chattr Pro — поддержите развитие Chattr",
 };
 
 export default function PricingPage() {
@@ -14,10 +14,10 @@ export default function PricingPage() {
           &larr; На главную
         </Link>
 
-        <h1 className={styles.title}>Поддержать Chattr</h1>
+        <h1 className={styles.title}>Chattr Pro</h1>
         <p className={styles.subtitle}>
-          Помогите нам развивать безопасный и приватный мессенджер.
-          Выберите подходящий план поддержки.
+          Поддержите развитие безопасного и приватного мессенджера.
+          Выберите подходящий план.
         </p>
 
         <div className={styles.grid}>
@@ -28,8 +28,8 @@ export default function PricingPage() {
             </div>
             <p className={styles.period}>в месяц</p>
             <ul className={styles.features}>
-              <li>Поддержка разработки</li>
-              <li>Приоритетная обратная связь</li>
+              <li>Поддержка развития Chattr</li>
+              <li>Приоритетная поддержка</li>
               <li>Автоматическое продление</li>
             </ul>
           </div>
@@ -42,8 +42,8 @@ export default function PricingPage() {
             </div>
             <p className={styles.period}>в год — 125 ₽/мес</p>
             <ul className={styles.features}>
-              <li>Поддержка разработки</li>
-              <li>Приоритетная обратная связь</li>
+              <li>Поддержка развития Chattr</li>
+              <li>Приоритетная поддержка</li>
               <li>Автоматическое продление</li>
               <li>Экономия 17%</li>
             </ul>
@@ -52,7 +52,7 @@ export default function PricingPage() {
 
         <div className={styles.note}>
           <p>
-            Подписка оформляется в приложении Chattr. Оплата производится в
+            Подписка оформляется на сайте Chattr. Оплата производится в
             рублях. Подписка продлевается автоматически — вы можете отменить
             её в любое время до начала нового периода.
           </p>
