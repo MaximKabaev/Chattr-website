@@ -98,9 +98,9 @@ export default function RefundPolicy() {
         <section className={styles.section}>
           <h2>Связаться с нами</h2>
           <p>
-            {/* Кабаев Максим Владимирович
+            ИП Кабаев Максим Владимирович
             <br />
-            Адрес: 3-я улица Ямского Поля, 2к16, г. Москва
+            ИНН: 973300361404 · ОГРНИП: 326150000015353
             <br />
             Электронная почта:{" "}
             <a href="mailto:mkabaevuk@gmail.com" className={styles.emailLink}>
@@ -110,7 +110,7 @@ export default function RefundPolicy() {
             Телефон:{" "}
             <a href="tel:+79261011107" className={styles.emailLink}>
               +7 (926) 101-11-07
-            </a> */}
+            </a>
           </p>
         </section>
       </main>
