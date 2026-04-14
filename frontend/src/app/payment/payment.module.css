@@ -1,0 +1,98 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.card {
+  text-align: center;
+  max-width: 460px;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 3.5rem 2.5rem;
+}
+
+.iconCircle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.iconSuccess {
+  background: linear-gradient(135deg, var(--green-400), var(--green-600));
+  color: #fff;
+}
+
+.iconFailed {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: #fff;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.description {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.875rem 1.75rem;
+  border-radius: 14px;
+  transition: background 0.15s, transform 0.15s;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.buttonSuccess {
+  background: var(--green-500);
+}
+
+.buttonSuccess:hover {
+  background: var(--green-600);
+  transform: translateY(-1px);
+}
+
+.buttonFailed {
+  background: #ef4444;
+}
+
+.buttonFailed:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+}
