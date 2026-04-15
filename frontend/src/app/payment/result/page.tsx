@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import styles from "../payment.module.css";
 
@@ -8,7 +8,7 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://api.arc-chat.app";
 const POLL_INTERVAL = 2000;
 const MAX_ATTEMPTS = 15;
 
-export default function PaymentResult() {
+function PaymentResultContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [status, setStatus] = useState<"polling" | "succeeded" | "failed">(
@@ -79,5 +79,22 @@ export default function PaymentResult() {
         </p>
       </div>
     </div>
+  );
+}
+
+export default function PaymentResult() {
+  return (
+    <Suspense
+      fallback={
+        <div className={styles.page}>
+          <div className={styles.card}>
+            <div className={styles.spinner} />
+            <h1 className={styles.title}>Загрузка...</h1>
+          </div>
+        </div>
+      }
+    >
+      <PaymentResultContent />
+    </Suspense>
   );
 }
