@@ -217,6 +217,9 @@ export default function Home() {
             <Link href="/data-deletion" className={styles.footerLink}>
               Удаление данных
             </Link>
+            <Link href="/account" className={styles.footerLink}>
+              Управление подпиской
+            </Link>
             <a href={APP_STORE_URL} className={styles.footerLink}>
               App Store
             </a>
