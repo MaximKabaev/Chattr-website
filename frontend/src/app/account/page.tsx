@@ -41,6 +41,15 @@ function formatDate(iso: string): string {
   }
 }
 
+function formatPlan(planId: string): string {
+  const map: Record<string, string> = {
+    monthly: "1 месяц",
+    yearly: "1 год",
+    grant: "Бонусный период",
+  };
+  return map[planId] ?? planId;
+}
+
 export default function AccountPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -175,10 +184,16 @@ export default function AccountPage() {
               </div>
               <div className={styles.row}>
                 <span className={styles.rowLabel}>План</span>
-                <span className={styles.rowValue}>{sub.plan_id}</span>
+                <span className={styles.rowValue}>
+                  {formatPlan(sub.plan_id)}
+                </span>
               </div>
               <div className={styles.row}>
-                <span className={styles.rowLabel}>Действует до</span>
+                <span className={styles.rowLabel}>
+                  {sub.auto_renew && isActive
+                    ? "Следующий платёж"
+                    : "Действует до"}
+                </span>
                 <span className={styles.rowValue}>
                   {formatDate(sub.expires_at)}
                 </span>
