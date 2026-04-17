@@ -28,6 +28,9 @@ export default function Home() {
             <Link href="/pricing" className={styles.headerLink}>
               Тарифы
             </Link>
+            <Link href="/account" className={styles.headerLink}>
+              Войти
+            </Link>
             <a href={APP_STORE_URL} className={styles.headerCta}>
               Скачать
             </a>
