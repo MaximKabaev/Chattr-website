@@ -118,7 +118,34 @@ export default function AccountPage() {
   const pm = data?.payment_method ?? null;
   const isActive = data?.status === "active";
   const canCancelRecurring = !!sub && sub.auto_renew && isActive;
+  const canResumeRecurring = !!sub && !sub.auto_renew && isActive && !!pm;
+  const canChangeCard = !!sub && isActive;
   const canDeleteCard = !!pm;
+
+  async function handleChangeCard() {
+    if (!sub) return;
+    setBusy(true);
+    setError(null);
+    setNotice(null);
+    try {
+      const res = await apiFetch<{ confirmation_url: string }>(
+        "/api/vpn/subscription/checkout",
+        {
+          method: "POST",
+          body: { planId: sub.plan_id, cardChange: true },
+        }
+      );
+      if (res.confirmation_url) {
+        window.location.href = res.confirmation_url;
+        return;
+      }
+      setError("YooKassa не вернул ссылку на оплату");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Операция не удалась");
+    } finally {
+      setBusy(false);
+    }
+  }
 
   return (
     <div className={styles.page}>
@@ -167,16 +194,34 @@ export default function AccountPage() {
             <p className={styles.empty}>У вас нет активной подписки.</p>
           )}
 
-          {canCancelRecurring && (
+          {(canCancelRecurring || canResumeRecurring) && (
             <div className={styles.actions}>
-              <button
-                type="button"
-                className={`${styles.button} ${styles.buttonSecondary}`}
-                onClick={() => setConfirm("cancel-sub")}
-                disabled={busy}
-              >
-                Отменить подписку (остановить автопродление)
-              </button>
+              {canResumeRecurring && (
+                <button
+                  type="button"
+                  className={styles.button}
+                  onClick={() =>
+                    runAction(
+                      "/api/vpn/subscription/resume-auto-renew",
+                      "POST",
+                      "Автопродление включено."
+                    )
+                  }
+                  disabled={busy}
+                >
+                  Включить автопродление
+                </button>
+              )}
+              {canCancelRecurring && (
+                <button
+                  type="button"
+                  className={`${styles.button} ${styles.buttonSecondary}`}
+                  onClick={() => setConfirm("cancel-sub")}
+                  disabled={busy}
+                >
+                  Отменить подписку (остановить автопродление)
+                </button>
+              )}
             </div>
           )}
         </section>
@@ -195,16 +240,28 @@ export default function AccountPage() {
             <p className={styles.empty}>Карта не привязана.</p>
           )}
 
-          {canDeleteCard && (
+          {(canChangeCard || canDeleteCard) && (
             <div className={styles.actions}>
-              <button
-                type="button"
-                className={`${styles.button} ${styles.buttonDanger}`}
-                onClick={() => setConfirm("delete-card")}
-                disabled={busy}
-              >
-                Удалить карту
-              </button>
+              {canChangeCard && (
+                <button
+                  type="button"
+                  className={`${styles.button} ${styles.buttonSecondary}`}
+                  onClick={handleChangeCard}
+                  disabled={busy}
+                >
+                  {pm ? "Сменить карту" : "Привязать карту"}
+                </button>
+              )}
+              {canDeleteCard && (
+                <button
+                  type="button"
+                  className={`${styles.button} ${styles.buttonDanger}`}
+                  onClick={() => setConfirm("delete-card")}
+                  disabled={busy}
+                >
+                  Удалить карту
+                </button>
+              )}
             </div>
           )}
         </section>
