@@ -267,48 +267,75 @@ export default function Home() {
       {/* Footer */}
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
-          <div className={styles.footerBrand}>
-            <Image
-              src="/app-icon.png"
-              alt="Chattr"
-              width={28}
-              height={28}
-              className={styles.footerIcon}
-            />
-            <span className={styles.footerLogo}>Chattr</span>
+          <div className={styles.footerTop}>
+            <div className={styles.footerBrand}>
+              <div className={styles.footerLogoRow}>
+                <Image
+                  src="/app-icon.png"
+                  alt="Chattr"
+                  width={48}
+                  height={48}
+                  className={styles.footerIcon}
+                />
+                <span className={styles.footerLogo}>Chattr</span>
+              </div>
+              <p className={styles.footerTagline}>
+                Приватный мессенджер для тех, кто ценит свободу общения.
+              </p>
+            </div>
+
+            <div className={styles.footerColumn}>
+              <h4 className={styles.footerHeading}>Контакты</h4>
+              <a href="mailto:mkabaevuk@gmail.com" className={styles.footerContact}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" width="16" height="16" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                mkabaevuk@gmail.com
+              </a>
+            </div>
+
+            <div className={styles.footerColumn}>
+              <h4 className={styles.footerHeading}>Правовая информация</h4>
+              <Link href="/privacy" className={styles.footerLink}>
+                Конфиденциальность
+              </Link>
+              <Link href="/terms" className={styles.footerLink}>
+                Условия использования
+              </Link>
+              <Link href="/refund" className={styles.footerLink}>
+                Возврат средств
+              </Link>
+              <Link href="/data-deletion" className={styles.footerLink}>
+                Удаление данных
+              </Link>
+            </div>
+
+            <div className={styles.footerColumn}>
+              <h4 className={styles.footerHeading}>Навигация</h4>
+              <Link href="/pricing" className={styles.footerLink}>
+                Тарифы
+              </Link>
+              <Link href="/account" className={styles.footerLink}>
+                Управление подпиской
+              </Link>
+              <a href={APP_STORE_URL} className={styles.footerLink}>
+                App Store
+              </a>
+              <a href={PLAY_STORE_URL} className={styles.footerLink}>
+                Google Play
+              </a>
+            </div>
           </div>
-          <nav className={styles.footerNav}>
-            <Link href="/privacy" className={styles.footerLink}>
-              Конфиденциальность
-            </Link>
-            <Link href="/pricing" className={styles.footerLink}>
-              Тарифы
-            </Link>
-            <Link href="/terms" className={styles.footerLink}>
-              Условия использования
-            </Link>
-            <Link href="/refund" className={styles.footerLink}>
-              Возврат средств
-            </Link>
-            <Link href="/support" className={styles.footerLink}>
-              Поддержка
-            </Link>
-            <Link href="/data-deletion" className={styles.footerLink}>
-              Удаление данных
-            </Link>
-            <Link href="/account" className={styles.footerLink}>
-              Управление подпиской
-            </Link>
-            <a href={APP_STORE_URL} className={styles.footerLink}>
-              App Store
-            </a>
-            <a href={PLAY_STORE_URL} className={styles.footerLink}>
-              Google Play
-            </a>
-          </nav>
-          <p className={styles.copyright}>
-            &copy; {new Date().getFullYear()} Chattr. Все права защищены.
-          </p>
+
+          <div className={styles.footerBottom}>
+            <p className={styles.copyright}>
+              &copy; {new Date().getFullYear()} Chattr. Все права защищены.
+            </p>
+            <p className={styles.copyright}>
+              ИП Кабаев Максим Владимирович · ИНН: 973300361404
+            </p>
+          </div>
         </div>
       </footer>
     </div>
