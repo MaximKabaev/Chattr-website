@@ -92,7 +92,7 @@
 }
 
 .headerCta {
-  font-size: 0.875rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: #fff;
   background: var(--green-500);
@@ -103,6 +103,24 @@
 
 .headerCta:hover {
   background: var(--green-600);
+}
+
+.headerProfile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 9999px;
+  color: var(--foreground);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.headerProfile:hover {
+  border-color: var(--green-500);
+  color: var(--green-500);
 }
 
 /* ===== Hero ===== */
@@ -691,6 +709,7 @@
 /* ===== Closing CTA ===== */
 .ctaSection {
   padding: 4rem 2rem 6rem;
+  scroll-margin-top: 64px;
 }
 
 .ctaInner {
@@ -931,11 +950,12 @@
 
   .footerTop {
     grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
+    gap: 2.5rem 3rem;
+    align-items: center;
   }
 
   .footerBrand {
-    grid-column: span 2;
+    align-self: center;
   }
 }
 
@@ -966,11 +986,7 @@
 
   .footerTop {
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-
-  .footerBrand {
-    grid-column: span 2;
+    gap: 2rem 2.5rem;
   }
 
   .footerBottom {
@@ -1025,5 +1041,10 @@
     right: auto;
     transform: translateX(-50%) rotate(3deg);
     bottom: +0.75rem;
+  }
+
+  .footerTop {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }

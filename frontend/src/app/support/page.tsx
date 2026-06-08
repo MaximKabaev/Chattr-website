@@ -2,7 +2,7 @@ import Link from "next/link";
 import styles from "./support.module.css";
 
 export const metadata = {
-  title: "Поддержка — Chattr",
+  title: "Поддержка · Chattr",
   description: "Свяжитесь с командой Chattr",
 };
 
@@ -16,8 +16,8 @@ export default function SupportPage() {
 
         <h1 className={styles.title}>Поддержка</h1>
         <p className={styles.subtitle}>
-          Если у вас есть вопросы, предложения или проблемы с приложением —
-          напишите нам.
+          Вопросы, предложения или что-то не работает? Напишите нам.
+          Мы читаем каждое письмо.
         </p>
 
         <div className={styles.card}>
@@ -75,9 +75,9 @@ export default function SupportPage() {
 
         <div className={styles.note}>
           <p>
-            Мы стараемся отвечать в течение 48 часов. При обращении, пожалуйста,
-            опишите проблему как можно подробнее — это поможет нам быстрее
-            разобраться и помочь.
+            Обычно отвечаем в течение 48 часов. Чтобы мы быстрее помогли,
+            опишите проблему как можно подробнее и приложите скриншоты, если
+            возможно.
           </p>
         </div>
       </main>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import styles from "../privacy/privacy.module.css";
 
 export const metadata = {
-  title: "Условия использования — Chattr",
+  title: "Условия использования · Chattr",
   description: "Публичная оферта и условия использования сервиса Chattr",
 };
 

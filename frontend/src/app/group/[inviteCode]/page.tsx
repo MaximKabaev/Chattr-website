@@ -34,7 +34,7 @@ export default async function GroupInvitePage({ params }: PageProps) {
         />
         <h1 className={styles.title}>Chattr</h1>
         <p className={styles.message}>
-          Вас пригласили в группу в Chattr
+          Вас приглашают в групповой чат
         </p>
 
         <a href={`chattr://group/${inviteCode}`} className={styles.openButton}>

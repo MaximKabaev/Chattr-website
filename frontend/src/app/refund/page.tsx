@@ -2,7 +2,7 @@ import Link from "next/link";
 import styles from "../privacy/privacy.module.css";
 
 export const metadata = {
-  title: "Политика возврата — Chattr",
+  title: "Политика возврата · Chattr",
   description: "Условия возврата средств за подписку Chattr",
 };
 

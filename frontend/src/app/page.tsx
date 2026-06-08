@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import HeaderAuthLink from "./_components/HeaderAuthLink";
 import styles from "./page.module.css";
 
 const APP_STORE_URL = "https://apps.apple.com/app/chattr/id6757166779";
@@ -54,10 +55,12 @@ export default function Home() {
             <Link href="/pricing" className={styles.headerLink}>
               Тарифы
             </Link>
-            <Link href="/account" className={styles.headerLink}>
-              Войти
-            </Link>
-            <a href={APP_STORE_URL} className={styles.headerCta}>
+            <HeaderAuthLink
+              loginLabel="Войти"
+              loginClassName={styles.headerLink}
+              profileClassName={styles.headerProfile}
+            />
+            <a href="#download" className={styles.headerCta}>
               Скачать
             </a>
           </nav>
@@ -232,7 +235,7 @@ export default function Home() {
         </section>
 
         {/* Closing CTA */}
-        <section className={styles.ctaSection}>
+        <section id="download" className={styles.ctaSection}>
           <div className={styles.ctaInner}>
             <div className={styles.ctaBubbleAccent} />
             <h2 className={styles.ctaTitle}>Начните говорить свободно.</h2>

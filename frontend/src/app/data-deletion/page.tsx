@@ -2,7 +2,7 @@ import Link from "next/link";
 import styles from "./data-deletion.module.css";
 
 export const metadata = {
-  title: "Удаление данных — Chattr",
+  title: "Удаление данных · Chattr",
   description: "Как удалить свои данные из приложения Chattr",
 };
 
@@ -16,23 +16,21 @@ export default function DataDeletionPage() {
 
         <h1 className={styles.title}>Удаление данных</h1>
         <p className={styles.subtitle}>
-          <strong>Chattr</strong> уважает ваше право на удаление персональных
-          данных. Ниже описано, как вы можете удалить свои данные из приложения.
+          Вы можете удалить аккаунт и все связанные данные в любой момент,
+          без обращения к нам и без объяснения причин.
         </p>
 
         <section className={styles.section}>
-          <h2>Как удалить данные</h2>
-
+          <h2>Как удалить аккаунт</h2>
           <div className={styles.steps}>
             <div className={styles.step}>
               <div className={styles.stepNumber}>1</div>
               <div className={styles.stepContent}>
                 <h3>Через настройки приложения</h3>
                 <p>
-                  Откройте <strong>Chattr</strong>, перейдите в{" "}
-                  <strong>Настройки</strong> и выберите{" "}
-                  <strong>Удалить аккаунт</strong>. Все ваши данные будут
-                  безвозвратно удалены.
+                  Откройте <strong>Chattr</strong> → <strong>Настройки</strong>{" "}
+                  → <strong>Удалить аккаунт</strong>. Все данные удалятся
+                  мгновенно и безвозвратно.
                 </p>
               </div>
             </div>
@@ -40,17 +38,17 @@ export default function DataDeletionPage() {
             <div className={styles.step}>
               <div className={styles.stepNumber}>2</div>
               <div className={styles.stepContent}>
-                <h3>Если вы потеряли доступ к аккаунту</h3>
+                <h3>Если потеряли доступ к аккаунту</h3>
                 <p>
-                  Если вы не можете войти в приложение, свяжитесь с нашей
-                  поддержкой по адресу{" "}
+                  Напишите на{" "}
                   <a
                     href="mailto:mkabaevuk@gmail.com"
                     className={styles.emailLink}
                   >
                     mkabaevuk@gmail.com
                   </a>
-                  . Мы поможем вам удалить ваш аккаунт и все связанные данные.
+                  . После проверки личности мы удалим аккаунт вручную, обычно в
+                  течение 48 часов.
                 </p>
               </div>
             </div>
@@ -58,32 +56,27 @@ export default function DataDeletionPage() {
         </section>
 
         <section className={styles.section}>
-          <h2>Какие данные удаляются</h2>
-          <p className={styles.sectionText}>
-            При удалении аккаунта <strong>все</strong> ваши данные удаляются
-            полностью и безвозвратно. Это включает:
-          </p>
+          <h2>Что удаляется</h2>
           <ul className={styles.dataList}>
-            <li>Профиль и информация аккаунта</li>
-            <li>Все сообщения и история переписок</li>
+            <li>Профиль и настройки аккаунта</li>
+            <li>Сообщения и история переписок</li>
             <li>Медиафайлы (фото, видео, документы)</li>
             <li>Контакты и списки чатов</li>
-            <li>Все прочие данные, связанные с вашим аккаунтом</li>
+            <li>Все остальные связанные данные</li>
           </ul>
         </section>
 
         <section className={styles.section}>
-          <h2>Какие данные сохраняются</h2>
+          <h2>Что остаётся у нас</h2>
           <p className={styles.sectionText}>
-            <strong>Никакие.</strong> После удаления аккаунта мы не храним
-            никаких ваших персональных данных. Удаление является полным и
-            необратимым.
+            <strong>Ничего.</strong> Никаких бэкапов, метаданных или
+            «обезличенных» копий. Удаление полное и окончательное.
           </p>
         </section>
 
         <div className={styles.contactBox}>
           <p>
-            Есть вопросы? Свяжитесь с нами:{" "}
+            Остались вопросы? Напишите нам:{" "}
             <a href="mailto:mkabaevuk@gmail.com" className={styles.emailLink}>
               mkabaevuk@gmail.com
             </a>
