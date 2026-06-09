@@ -5,8 +5,8 @@ import styles from "./page.module.css";
 
 const APP_STORE_URL = "https://apps.apple.com/app/chattr/id6757166779";
 const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=app.arcchat.chattr";
-const MAC_DOWNLOAD_URL = "#";
-const WINDOWS_DOWNLOAD_URL = "#";
+const MAC_DOWNLOAD_URL = "/download/macos";
+const WINDOWS_DOWNLOAD_URL = "/download/windows";
 
 function AppleGlyph() {
   return (
