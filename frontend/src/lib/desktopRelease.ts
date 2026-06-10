@@ -16,11 +16,15 @@ export type DesktopAsset = {
   filename: string;
   sizeBytes: number;
   sha512: string;
+  // Windows + Mac releases can ship independently — keep the per-platform
+  // version and date on the asset itself instead of one global value, so
+  // the UI can show e.g. "Windows 0.2.4 · 8 июня" alongside "macOS 0.2.6
+  // · 10 июня" without lying about either.
+  version: string;
+  releasedAt: string | null;
 };
 
 export type DesktopRelease = {
-  version: string;
-  releasedAt: string | null;
   windows: DesktopAsset | null;
   macArm64: DesktopAsset | null;
   macIntel: DesktopAsset | null;
@@ -66,6 +70,8 @@ function pickAsset(
     filename: match.url,
     sizeBytes: match.size,
     sha512: match.sha512,
+    version: yml.version ?? "0.0.0",
+    releasedAt: yml.releaseDate ?? null,
   };
 }
 
@@ -76,12 +82,7 @@ export async function getDesktopRelease(): Promise<DesktopRelease | null> {
   ]);
   if (!win && !mac) return null;
 
-  const version = mac?.version ?? win?.version ?? "0.0.0";
-  const releasedAt = mac?.releaseDate ?? win?.releaseDate ?? null;
-
   return {
-    version,
-    releasedAt,
     windows: pickAsset(win, (f) => f.endsWith(".exe")),
     // Mac feed lists .dmg + .zip for each arch; we only surface .dmg to users
     // since electron-builder ships those as the primary user-facing installer.

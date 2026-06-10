@@ -16,6 +16,19 @@ interface Props {
   defaultPlatform?: "windows" | "macos";
 }
 
+function formatDate(iso: string | null): string {
+  if (!iso) return "";
+  try {
+    return new Intl.DateTimeFormat("ru-RU", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(new Date(iso));
+  } catch {
+    return "";
+  }
+}
+
 function AppleGlyph() {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true">
@@ -32,23 +45,7 @@ function WindowsGlyph() {
   );
 }
 
-function formatDate(iso: string | null): string {
-  if (!iso) return "";
-  try {
-    return new Intl.DateTimeFormat("ru-RU", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    }).format(new Date(iso));
-  } catch {
-    return "";
-  }
-}
-
 export default function DownloadBody({ release, defaultPlatform }: Props) {
-  const version = release?.version ?? null;
-  const releasedAt = formatDate(release?.releasedAt ?? null);
-
   const winSize = release?.windows ? formatBytes(release.windows.sizeBytes) : "—";
   const macArmSize = release?.macArm64
     ? formatBytes(release.macArm64.sizeBytes)
@@ -56,6 +53,16 @@ export default function DownloadBody({ release, defaultPlatform }: Props) {
   const macIntelSize = release?.macIntel
     ? formatBytes(release.macIntel.sizeBytes)
     : "—";
+
+  const winMeta = release?.windows
+    ? `Версия ${release.windows.version}${release.windows.releasedAt ? ` · ${formatDate(release.windows.releasedAt)}` : ""}`
+    : null;
+  const macArmMeta = release?.macArm64
+    ? `Версия ${release.macArm64.version}${release.macArm64.releasedAt ? ` · ${formatDate(release.macArm64.releasedAt)}` : ""}`
+    : null;
+  const macIntelMeta = release?.macIntel
+    ? `Версия ${release.macIntel.version}${release.macIntel.releasedAt ? ` · ${formatDate(release.macIntel.releasedAt)}` : ""}`
+    : null;
 
   return (
     <div className={styles.page}>
@@ -86,18 +93,6 @@ export default function DownloadBody({ release, defaultPlatform }: Props) {
         <section className={styles.hero}>
           <div className={styles.heroGlow} />
           <div className={styles.heroInner}>
-            {version ? (
-              <span className={styles.eyebrow}>
-                <span className={styles.eyebrowDot} />
-                Версия {version}
-                {releasedAt ? ` · ${releasedAt}` : ""}
-              </span>
-            ) : (
-              <span className={styles.eyebrow}>
-                <span className={styles.eyebrowDot} />
-                Скоро в выпуске
-              </span>
-            )}
             <h1 className={styles.title}>
               Chattr для <span className={styles.titleAccent}>рабочего стола</span>
             </h1>
@@ -115,6 +110,7 @@ export default function DownloadBody({ release, defaultPlatform }: Props) {
               title="macOS"
               subtitle="Apple Silicon (M1, M2, M3, M4)"
               size={macArmSize}
+              versionMeta={macArmMeta}
               href={release?.macArm64?.url ?? null}
               forcedRecommended={defaultPlatform === "macos"}
               icon={<AppleGlyph />}
@@ -124,6 +120,7 @@ export default function DownloadBody({ release, defaultPlatform }: Props) {
               title="macOS"
               subtitle="Intel"
               size={macIntelSize}
+              versionMeta={macIntelMeta}
               href={release?.macIntel?.url ?? null}
               icon={<AppleGlyph />}
             />
@@ -132,6 +129,7 @@ export default function DownloadBody({ release, defaultPlatform }: Props) {
               title="Windows"
               subtitle="10 или новее, 64-bit"
               size={winSize}
+              versionMeta={winMeta}
               href={release?.windows?.url ?? null}
               forcedRecommended={defaultPlatform === "windows"}
               icon={<WindowsGlyph />}

@@ -275,6 +275,13 @@
   color: var(--muted);
 }
 
+.platformVersion {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
 .platformMeta {
   display: flex;
   align-items: center;

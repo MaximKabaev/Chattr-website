@@ -10,6 +10,12 @@ interface Props {
   title: string;
   subtitle: string;
   size: string;
+  /**
+   * Per-platform version + release date line, already formatted by the
+   * server component (e.g. "Версия 0.2.6 · 10 июня 2026 г."). null when the
+   * platform's feed isn't reachable yet.
+   */
+  versionMeta: string | null;
   href: string | null;
   /**
    * When set, this card is highlighted as the recommended pick regardless of
@@ -42,6 +48,7 @@ export default function PlatformCard({
   title,
   subtitle,
   size,
+  versionMeta,
   href,
   forcedRecommended,
   icon,
@@ -71,6 +78,9 @@ export default function PlatformCard({
       <div className={styles.platformText}>
         <div className={styles.platformTitle}>{title}</div>
         <div className={styles.platformSubtitle}>{subtitle}</div>
+        {versionMeta && (
+          <div className={styles.platformVersion}>{versionMeta}</div>
+        )}
       </div>
       <div className={styles.platformMeta}>
         <span className={styles.platformSize}>{available ? size : "Скоро"}</span>
