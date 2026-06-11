@@ -5,7 +5,7 @@ import { getDesktopRelease } from "../../lib/desktopRelease";
 export const metadata: Metadata = {
   title: "Скачать Chattr · Для Windows и macOS",
   description:
-    "Скачайте Chattr — приватный VPN-клиент для Windows и macOS. Автоматические обновления, защищённое подключение.",
+    "Скачайте Chattr для Windows и macOS. Автоматические обновления, защищённое подключение.",
 };
 
 export const revalidate = 300;

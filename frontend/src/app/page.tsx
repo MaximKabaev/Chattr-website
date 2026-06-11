@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import HeaderAuthLink from "./_components/HeaderAuthLink";
 import styles from "./page.module.css";
 
 const APP_STORE_URL = "https://apps.apple.com/app/chattr/id6757166779";
@@ -35,38 +34,6 @@ function WindowsGlyph() {
 export default function Home() {
   return (
     <div className={styles.page}>
-      {/* Header */}
-      <header className={styles.header}>
-        <div className={styles.headerInner}>
-          <div className={styles.logoGroup}>
-            <Image
-              src="/app-icon.png"
-              alt="Chattr"
-              width={36}
-              height={36}
-              className={styles.headerIcon}
-            />
-            <span className={styles.logoText}>Chattr</span>
-          </div>
-          <nav className={styles.headerNav}>
-            <Link href="/privacy" className={styles.headerLink}>
-              Конфиденциальность
-            </Link>
-            <Link href="/pricing" className={styles.headerLink}>
-              Тарифы
-            </Link>
-            <HeaderAuthLink
-              loginLabel="Войти"
-              loginClassName={styles.headerLink}
-              profileClassName={styles.headerProfile}
-            />
-            <a href="#download" className={styles.headerCta}>
-              Скачать
-            </a>
-          </nav>
-        </div>
-      </header>
-
       <main>
         {/* Hero */}
         <section className={styles.hero}>

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import PlatformCard from "./PlatformCard";
 import {
@@ -61,29 +60,6 @@ export default function DownloadBody({ release }: Props) {
 
   return (
     <div className={styles.page}>
-      <header className={styles.header}>
-        <div className={styles.headerInner}>
-          <Link href="/" className={styles.logoGroup}>
-            <Image
-              src="/app-icon.png"
-              alt="Chattr"
-              width={36}
-              height={36}
-              className={styles.headerIcon}
-            />
-            <span className={styles.logoText}>Chattr</span>
-          </Link>
-          <nav className={styles.headerNav}>
-            <Link href="/" className={styles.headerLink}>
-              На главную
-            </Link>
-            <Link href="/support" className={styles.headerLink}>
-              Поддержка
-            </Link>
-          </nav>
-        </div>
-      </header>
-
       <main className={styles.main}>
         <section className={styles.hero}>
           <div className={styles.heroGlow} />
@@ -92,8 +68,7 @@ export default function DownloadBody({ release }: Props) {
               Chattr для <span className={styles.titleAccent}>рабочего стола</span>
             </h1>
             <p className={styles.tagline}>
-              VPN-клиент Chattr для Windows и macOS. Защищённое подключение
-              одним кликом. Автоматические обновления.
+              Chattr для Windows и macOS. Защищённое подключение. Автоматические обновления.
             </p>
           </div>
         </section>

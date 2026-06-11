@@ -135,10 +135,8 @@
   font-weight: 600;
 }
 
-@media (prefers-color-scheme: dark) {
-  .planCardPopular .planSub {
-    color: var(--green-400);
-  }
+:global(html[data-theme="dark"]) .planCardPopular .planSub {
+  color: var(--green-400);
 }
 
 .planPrice {
@@ -286,10 +284,8 @@
   transition: color 0.15s;
 }
 
-@media (prefers-color-scheme: dark) {
-  .link {
-    color: var(--green-400);
-  }
+:global(html[data-theme="dark"]) .link {
+  color: var(--green-400);
 }
 
 .link:hover {

@@ -1,0 +1,24 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 9999px;
+  color: var(--foreground);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  padding: 0;
+}
+
+.toggle:hover {
+  border-color: var(--green-500);
+  color: var(--green-500);
+}
+
+.toggle:focus-visible {
+  outline: 2px solid var(--green-500);
+  outline-offset: 2px;
+}

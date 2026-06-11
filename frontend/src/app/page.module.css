@@ -20,14 +20,12 @@
   pointer-events: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  .page::before {
-    background-image: radial-gradient(
-      circle at 1px 1px,
-      rgba(255, 255, 255, 0.05) 1px,
-      transparent 0
-    );
-  }
+:global(html[data-theme="dark"]) .page::before {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 0
+  );
 }
 
 /* ===== Header ===== */
@@ -43,10 +41,8 @@
   border-bottom: 1px solid var(--border);
 }
 
-@media (prefers-color-scheme: dark) {
-  .header {
-    background: rgba(10, 12, 16, 0.75);
-  }
+:global(html[data-theme="dark"]) .header {
+  background: rgba(10, 12, 16, 0.75);
 }
 
 .headerInner {
@@ -126,7 +122,7 @@
 /* ===== Hero ===== */
 .hero {
   position: relative;
-  padding: 8rem 2rem 5rem;
+  padding: 4rem 2rem 5rem;
   overflow: hidden;
 }
 
@@ -145,14 +141,12 @@
   z-index: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  .heroGlow {
-    background: radial-gradient(
-      circle,
-      rgba(92, 184, 57, 0.1) 0%,
-      transparent 65%
-    );
-  }
+:global(html[data-theme="dark"]) .heroGlow {
+  background: radial-gradient(
+    circle,
+    rgba(92, 184, 57, 0.1) 0%,
+    transparent 65%
+  );
 }
 
 .heroGrid {
@@ -302,13 +296,11 @@
   transform: rotate(-1.5deg);
 }
 
-@media (prefers-color-scheme: dark) {
-  .chatCard {
-    box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.04) inset,
-      0 20px 60px -20px rgba(0, 0, 0, 0.6),
-      0 8px 24px -8px rgba(0, 0, 0, 0.4);
-  }
+:global(html[data-theme="dark"]) .chatCard {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 20px 60px -20px rgba(0, 0, 0, 0.6),
+    0 8px 24px -8px rgba(0, 0, 0, 0.4);
 }
 
 .chatHeader {
@@ -503,11 +495,9 @@
   transform: rotate(3deg);
 }
 
-@media (prefers-color-scheme: dark) {
-  .floatBadge {
-    color: var(--green-400);
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
-  }
+:global(html[data-theme="dark"]) .floatBadge {
+  color: var(--green-400);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
 }
 
 /* ===== Trust strip ===== */
@@ -562,10 +552,8 @@
   margin-bottom: 0.75rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  .featuresEyebrow {
-    color: var(--green-400);
-  }
+:global(html[data-theme="dark"]) .featuresEyebrow {
+  color: var(--green-400);
 }
 
 .sectionTitle {
@@ -739,14 +727,12 @@
   pointer-events: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  .ctaBubbleAccent {
-    background: radial-gradient(
-      circle,
-      rgba(92, 184, 57, 0.12) 0%,
-      transparent 70%
-    );
-  }
+:global(html[data-theme="dark"]) .ctaBubbleAccent {
+  background: radial-gradient(
+    circle,
+    rgba(92, 184, 57, 0.12) 0%,
+    transparent 70%
+  );
 }
 
 .ctaTitle {
@@ -969,7 +955,7 @@
   }
 
   .hero {
-    padding: 7rem 1.5rem 4rem;
+    padding: 2rem 1.5rem 4rem;
   }
 
   .features {

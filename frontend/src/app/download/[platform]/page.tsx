@@ -20,7 +20,7 @@ export async function generateMetadata({
   const label = platform === "windows" ? "Windows" : "macOS";
   return {
     title: `Скачать Chattr для ${label}`,
-    description: `Скачайте Chattr для ${label} — приватный VPN-клиент с автоматическими обновлениями.`,
+    description: `Скачайте Chattr для ${label} с автоматическими обновлениями.`,
   };
 }
 
