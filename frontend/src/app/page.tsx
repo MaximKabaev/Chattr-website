@@ -84,7 +84,7 @@ export default function Home() {
               </h1>
               <p className={styles.tagline}>
                 Chattr это мессенджер, созданный для тех, кто ценит приватность.
-                Никакого сбора данных. Никакой рекламы. Просто безопасное общение.
+                Без рекламы, без продажи данных, без трекеров. Просто надёжное общение.
               </p>
 
               <div className={styles.mobileButtons}>
@@ -132,16 +132,16 @@ export default function Home() {
                 </div>
                 <div className={styles.chatBody}>
                   <div className={`${styles.bubble} ${styles.bubbleIn}`}>
-                    Привет! Этот чат точно безопасный?
+                    Привет! Здесь спокойно общаться?
                   </div>
                   <div className={`${styles.bubble} ${styles.bubbleOut}`}>
-                    Да. Никто ничего не читает 🌿
+                    Да. Без рекламы и трекеров 🌿
                   </div>
                   <div className={`${styles.bubble} ${styles.bubbleIn}`}>
-                    Даже сами Chattr?
+                    А данные никому не продают?
                   </div>
                   <div className={`${styles.bubble} ${styles.bubbleOut} ${styles.bubbleSending}`}>
-                    Особенно мы.
+                    Никогда.
                   </div>
                   <div className={`${styles.typingBubble} ${styles.typingBubbleDelayed}`}>
                     <span className={styles.typingDot} />
@@ -166,7 +166,7 @@ export default function Home() {
           <div className={styles.trustInner}>
             <span className={styles.trustItem}>
               <span className={styles.trustDot} />
-              Без сбора данных
+              Без продажи данных
             </span>
             <span className={styles.trustItem}>
               <span className={styles.trustDot} />
@@ -188,7 +188,7 @@ export default function Home() {
           <div className={styles.featuresInner}>
             <span className={styles.featuresEyebrow}>Что внутри</span>
             <h2 className={styles.sectionTitle}>
-              Мессенджер, который <span className={styles.sectionTitleAccent}>уважает вас</span>
+              Мессенджер от своих <span className={styles.sectionTitleAccent}>для своих</span>
             </h2>
             <div className={styles.bentoGrid}>
               <div className={`${styles.bentoCard} ${styles.bentoBig}`}>
@@ -198,10 +198,10 @@ export default function Home() {
                   <div className={styles.miniBubbleIn}>•••</div>
                 </div>
                 <div className={styles.bentoBody}>
-                  <h3 className={styles.bentoTitle}>Полная приватность</h3>
+                  <h3 className={styles.bentoTitle}>Приватность по умолчанию</h3>
                   <p className={styles.bentoDesc}>
-                    Ваши сообщения принадлежат только вам. Мы не читаем, не храним
-                    и не анализируем ваши данные, потому что у нас их нет.
+                    Ваши сообщения зашифрованы в пути и на сервере. Мы не используем
+                    их для рекламы и не передаём третьим лицам.
                   </p>
                 </div>
               </div>
@@ -209,13 +209,14 @@ export default function Home() {
               <div className={`${styles.bentoCard} ${styles.bentoSmall}`}>
                 <div className={`${styles.bentoIcon} ${styles.bentoIconOutline}`}>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" width="24" height="24">
-                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
-                    <line x1="1" y1="1" x2="23" y2="23" />
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                   </svg>
                 </div>
-                <h3 className={styles.bentoTitle}>Без слежки</h3>
+                <h3 className={styles.bentoTitle}>Работает без VPN</h3>
                 <p className={styles.bentoDesc}>
-                  Ноль аналитики, ноль трекеров. Мы не знаем, кто вы.
+                  Надёжная связь даже там, где другие мессенджеры заблокированы. Открыл и общаешься.
                 </p>
               </div>
 
@@ -283,7 +284,7 @@ export default function Home() {
                 <span className={styles.footerLogo}>Chattr</span>
               </div>
               <p className={styles.footerTagline}>
-                Приватный мессенджер для тех, кто ценит свободу общения.
+                Мессенджер без блокировок. Работает без VPN.
               </p>
             </div>
 
@@ -334,9 +335,6 @@ export default function Home() {
           <div className={styles.footerBottom}>
             <p className={styles.copyright}>
               &copy; {new Date().getFullYear()} Chattr. Все права защищены.
-            </p>
-            <p className={styles.copyright}>
-              ИП Кабаев Максим Владимирович · ИНН: 973300361404
             </p>
           </div>
         </div>

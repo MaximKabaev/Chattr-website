@@ -239,6 +239,10 @@
   margin-top: 0.1rem;
 }
 
+.checkIcon svg {
+  stroke: #fff;
+}
+
 .includedItem > div {
   display: flex;
   flex-direction: column;
