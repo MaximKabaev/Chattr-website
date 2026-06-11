@@ -33,10 +33,5 @@ export default async function PlatformDownloadPage({
   if (!VALID.has(platform)) redirect("/download");
 
   const release = await getDesktopRelease();
-  return (
-    <DownloadBody
-      release={release}
-      defaultPlatform={platform as "windows" | "macos"}
-    />
-  );
+  return <DownloadBody release={release} />;
 }

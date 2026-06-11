@@ -9,11 +9,6 @@ import styles from "../download.module.css";
 
 interface Props {
   release: DesktopRelease | null;
-  /**
-   * Set by /download/[platform] routes to force-highlight a specific card.
-   * Undefined for /download — UA detection picks instead.
-   */
-  defaultPlatform?: "windows" | "macos";
 }
 
 function formatDate(iso: string | null): string {
@@ -45,7 +40,7 @@ function WindowsGlyph() {
   );
 }
 
-export default function DownloadBody({ release, defaultPlatform }: Props) {
+export default function DownloadBody({ release }: Props) {
   const winSize = release?.windows ? formatBytes(release.windows.sizeBytes) : "—";
   const macArmSize = release?.macArm64
     ? formatBytes(release.macArm64.sizeBytes)
@@ -112,7 +107,6 @@ export default function DownloadBody({ release, defaultPlatform }: Props) {
               size={macArmSize}
               versionMeta={macArmMeta}
               href={release?.macArm64?.url ?? null}
-              forcedRecommended={defaultPlatform === "macos"}
               icon={<AppleGlyph />}
             />
             <PlatformCard
@@ -131,7 +125,6 @@ export default function DownloadBody({ release, defaultPlatform }: Props) {
               size={winSize}
               versionMeta={winMeta}
               href={release?.windows?.url ?? null}
-              forcedRecommended={defaultPlatform === "windows"}
               icon={<WindowsGlyph />}
             />
           </div>

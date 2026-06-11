@@ -17,11 +17,6 @@ interface Props {
    */
   versionMeta: string | null;
   href: string | null;
-  /**
-   * When set, this card is highlighted as the recommended pick regardless of
-   * UA detection. Used by /download/[platform] deep-links.
-   */
-  forcedRecommended?: boolean;
   icon: React.ReactNode;
 }
 
@@ -50,7 +45,6 @@ export default function PlatformCard({
   size,
   versionMeta,
   href,
-  forcedRecommended,
   icon,
 }: Props) {
   const [detected, setDetected] = useState<Platform | null>(null);
@@ -58,7 +52,7 @@ export default function PlatformCard({
     setDetected(detectPlatform());
   }, []);
 
-  const recommended = forcedRecommended ?? detected === platform;
+  const recommended = detected === platform;
   const available = !!href;
 
   return (
