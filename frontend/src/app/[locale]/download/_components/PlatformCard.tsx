@@ -1,0 +1,96 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import styles from "../download.module.css";
+
+type Platform = "windows" | "macArm64" | "macIntel";
+
+interface CardLabels {
+  recommended: string;
+  soon: string;
+  download: string;
+  unavailable: string;
+}
+
+interface Props {
+  platform: Platform;
+  title: string;
+  subtitle: string;
+  size: string;
+  /**
+   * Per-platform version + release date line, already formatted by the
+   * server component (e.g. "Версия 0.2.6 · 10 июня 2026 г."). null when the
+   * platform's feed isn't reachable yet.
+   */
+  versionMeta: string | null;
+  href: string | null;
+  icon: React.ReactNode;
+  labels: CardLabels;
+}
+
+function detectPlatform(): Platform | null {
+  if (typeof navigator === "undefined") return null;
+  const ua = navigator.userAgent;
+  const platform =
+    // navigator.userAgentData is the modern API but isn't on Safari yet
+    (navigator as unknown as { userAgentData?: { platform?: string } })
+      .userAgentData?.platform ?? "";
+
+  if (/Mac/i.test(platform) || /Macintosh|Mac OS X/i.test(ua)) {
+    // Apple Silicon detection from the browser is unreliable: navigator.platform
+    // reports "MacIntel" even on M1+. We default to arm64 since most new Macs
+    // are Apple Silicon — Intel users can still pick the other card.
+    return "macArm64";
+  }
+  if (/Win/i.test(platform) || /Windows/i.test(ua)) return "windows";
+  return null;
+}
+
+export default function PlatformCard({
+  platform,
+  title,
+  subtitle,
+  size,
+  versionMeta,
+  href,
+  icon,
+  labels,
+}: Props) {
+  const [detected, setDetected] = useState<Platform | null>(null);
+  useEffect(() => {
+    setDetected(detectPlatform());
+  }, []);
+
+  const recommended = detected === platform;
+  const available = !!href;
+
+  return (
+    <a
+      href={href ?? "#"}
+      className={`${styles.platformCard} ${recommended ? styles.platformCardRecommended : ""} ${!available ? styles.platformCardDisabled : ""}`}
+      aria-disabled={!available}
+      onClick={(e) => {
+        if (!available) e.preventDefault();
+      }}
+      download={available ? "" : undefined}
+    >
+      {recommended && <span className={styles.recommendedBadge}>{labels.recommended}</span>}
+      <div className={styles.platformIcon} aria-hidden="true">
+        {icon}
+      </div>
+      <div className={styles.platformText}>
+        <div className={styles.platformTitle}>{title}</div>
+        <div className={styles.platformSubtitle}>{subtitle}</div>
+        {versionMeta && (
+          <div className={styles.platformVersion}>{versionMeta}</div>
+        )}
+      </div>
+      <div className={styles.platformMeta}>
+        <span className={styles.platformSize}>{available ? size : labels.soon}</span>
+        <span className={styles.platformAction}>
+          {available ? labels.download : labels.unavailable}
+        </span>
+      </div>
+    </a>
+  );
+}
