@@ -11,7 +11,6 @@ import { localizedPath, type Locale } from "@/i18n/config";
 
 type NavStrings = {
   logoAlt: string;
-  privacy: string;
   pricing: string;
   login: string;
   download: string;
@@ -91,12 +90,6 @@ export default function SiteHeader({ locale, nav, theme }: Props) {
 
         <nav className={styles.headerNav}>
           <Link
-            href={localizedPath(locale, "/privacy")}
-            className={styles.headerLink}
-          >
-            {nav.privacy}
-          </Link>
-          <Link
             href={localizedPath(locale, "/pricing")}
             className={styles.headerLink}
           >
@@ -147,13 +140,6 @@ export default function SiteHeader({ locale, nav, theme }: Props) {
 
       {open && (
         <div id="site-mobile-menu" className={styles.mobilePanel}>
-          <Link
-            href={localizedPath(locale, "/privacy")}
-            className={styles.mobileLink}
-            onClick={closeMenu}
-          >
-            {nav.privacy}
-          </Link>
           <Link
             href={localizedPath(locale, "/pricing")}
             className={styles.mobileLink}
