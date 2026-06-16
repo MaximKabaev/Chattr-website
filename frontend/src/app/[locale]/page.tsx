@@ -270,6 +270,9 @@ export default async function Home({
               <Link href={localizedPath(locale, "/privacy")} className={styles.footerLink}>
                 {dict.footer.privacy}
               </Link>
+              <Link href={localizedPath(locale, "/privacy-connect")} className={styles.footerLink}>
+                {dict.footer.privacyConnect}
+              </Link>
               <Link href={localizedPath(locale, "/terms")} className={styles.footerLink}>
                 {dict.footer.terms}
               </Link>
