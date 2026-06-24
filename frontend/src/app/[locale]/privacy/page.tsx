@@ -49,11 +49,6 @@ export default async function PrivacyPolicy({ params }: Props) {
         </section>
 
         <section className={styles.section}>
-          <h2>{t.thirdPartyTitle}</h2>
-          <p>{t.thirdPartyText}</p>
-        </section>
-
-        <section className={styles.section}>
           <h2>{t.retentionTitle}</h2>
           <p>{t.retentionText}</p>
         </section>

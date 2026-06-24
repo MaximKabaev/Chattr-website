@@ -102,8 +102,6 @@
     "storageText": "Your messages and media are stored on our servers in encrypted form, as well as locally on your device. Server-side storage is needed to deliver messages, sync across your devices, and keep your conversation history.",
     "securityTitle": "Security and Access",
     "securityText": "The content of your messages and media is stored in encrypted form, and we do not have access to it. We do not sell your data or share it with third parties, except where required by law.",
-    "thirdPartyTitle": "Third-Party Services",
-    "thirdPartyText": "Chattr does not use any third-party analytics, advertising, or tracking services.",
     "retentionTitle": "Data Retention and Deletion",
     "retentionText": "We retain your data for as long as it is needed to provide the service. You can delete your account and its associated data at any time — see the \"Data Deletion\" page for details.",
     "changesTitle": "Changes to This Policy",
