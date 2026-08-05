@@ -3,13 +3,19 @@ import Link from "next/link";
 import styles from "./support.module.css";
 import { getDictionary } from "@/i18n/dictionaries";
 import { defaultLocale, isLocale, localizedPath } from "@/i18n/config";
+import { alternatesFor } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = getDictionary(isLocale(locale) ? locale : defaultLocale).support;
-  return { title: t.metaTitle, description: t.metaDescription };
+  const resolved = isLocale(locale) ? locale : defaultLocale;
+  const t = getDictionary(resolved).support;
+  return {
+    title: t.metaTitle,
+    description: t.metaDescription,
+    alternates: alternatesFor(resolved, "/support"),
+  };
 }
 
 export default async function SupportPage({ params }: Props) {

@@ -3,13 +3,19 @@ import Link from "next/link";
 import styles from "./privacy.module.css";
 import { getDictionary } from "@/i18n/dictionaries";
 import { defaultLocale, isLocale, localizedPath } from "@/i18n/config";
+import { alternatesFor } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = getDictionary(isLocale(locale) ? locale : defaultLocale).privacy;
-  return { title: t.metaTitle, description: t.metaDescription };
+  const resolved = isLocale(locale) ? locale : defaultLocale;
+  const t = getDictionary(resolved).privacy;
+  return {
+    title: t.metaTitle,
+    description: t.metaDescription,
+    alternates: alternatesFor(resolved, "/privacy"),
+  };
 }
 
 export default async function PrivacyPolicy({ params }: Props) {

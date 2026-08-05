@@ -1,8 +1,10 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
 import { getDictionary } from "@/i18n/dictionaries";
 import { defaultLocale, isLocale, localizedPath } from "@/i18n/config";
+import { SITE_URL, absoluteUrl, alternatesFor } from "@/lib/seo";
 
 const APP_STORE_URL = "https://apps.apple.com/app/chattr/id6757166779";
 const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=app.arcchat.chattr";
@@ -31,6 +33,16 @@ function WindowsGlyph() {
   );
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: raw } = await params;
+  const locale = isLocale(raw) ? raw : defaultLocale;
+  return { alternates: alternatesFor(locale, "/") };
+}
+
 export default async function Home({
   params,
 }: {
@@ -44,120 +56,206 @@ export default async function Home({
   const macDownloadUrl = localizedPath(locale, "/download/macos");
   const windowsDownloadUrl = localizedPath(locale, "/download/windows");
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#organization`,
+        name: "Chattr",
+        url: SITE_URL,
+        logo: `${SITE_URL}/app-icon.png`,
+        sameAs: [APP_STORE_URL, PLAY_STORE_URL],
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        name: "Chattr",
+        url: absoluteUrl(locale, "/"),
+        inLanguage: locale,
+        publisher: { "@id": `${SITE_URL}/#organization` },
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": `${SITE_URL}/#app`,
+        name: "Chattr",
+        alternateName: ["Чаттр", "Chattr Messenger"],
+        applicationCategory: "CommunicationApplication",
+        applicationSubCategory: "Messaging",
+        operatingSystem: "iOS, Android, macOS 11+, Windows 10+",
+        url: absoluteUrl(locale, "/"),
+        image: `${SITE_URL}/app-icon.png`,
+        description: dict.meta.homeDescription,
+        inLanguage: locale,
+        installUrl: [APP_STORE_URL, PLAY_STORE_URL],
+        downloadUrl: [
+          APP_STORE_URL,
+          PLAY_STORE_URL,
+          `${SITE_URL}/download/macos`,
+          `${SITE_URL}/download/windows`,
+        ],
+        featureList: [
+          t.features.card1Title,
+          t.features.card2Title,
+          t.features.card3Title,
+          t.trust.noData,
+          t.trust.noAds,
+          t.trust.noTrackers,
+          t.trust.anonymous,
+        ],
+        offers: [
+          {
+            "@type": "Offer",
+            name: "Chattr",
+            price: 0,
+            priceCurrency: "RUB",
+            availability: "https://schema.org/InStock",
+          },
+          {
+            "@type": "Offer",
+            name: "Chattr Pro",
+            price: 150,
+            priceCurrency: "RUB",
+            url: absoluteUrl(locale, "/pricing"),
+            availability: "https://schema.org/InStock",
+          },
+        ],
+        publisher: { "@id": `${SITE_URL}/#organization` },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${absoluteUrl(locale, "/")}#faq`,
+        inLanguage: locale,
+        mainEntity: t.faq.items.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: { "@type": "Answer", text: item.a },
+        })),
+      },
+    ],
+  };
+
   return (
     <div className={styles.page}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <main>
-        {/* Hero */}
-        <section className={styles.hero}>
-          <div className={styles.heroGlow} />
-          <div className={styles.heroGrid}>
-            <div className={styles.heroText}>
-              <span className={styles.eyebrow}>
-                <span className={styles.eyebrowDot} />
-                {t.hero.eyebrow}
-              </span>
-              <h1 className={styles.title}>
-                {t.hero.titleLine1}
-                <br />
-                <span className={styles.titleAccent}>{t.hero.titleAccent}</span>
-              </h1>
-              <p className={styles.tagline}>{t.hero.tagline}</p>
+        {/* Hero + trust strip fill exactly one viewport height */}
+        <div className={styles.viewportBlock}>
+          {/* Hero */}
+          <section className={styles.hero}>
+            <div className={styles.heroGlow} />
+            <div className={styles.heroGrid}>
+              <div className={styles.heroText}>
+                <span className={styles.eyebrow}>
+                  <span className={styles.eyebrowDot} />
+                  {t.hero.eyebrow}
+                </span>
+                <h1 className={styles.title}>
+                  {t.hero.titleLine1}
+                  <br />
+                  <span className={styles.titleAccent}>{t.hero.titleAccent}</span>
+                </h1>
+                <p className={styles.tagline}>{t.hero.tagline}</p>
 
-              <div className={styles.mobileButtons}>
-                <a href={APP_STORE_URL} className={styles.primaryCta}>
-                  <AppleGlyph />
-                  {t.hero.appStore}
-                </a>
-                <a href={PLAY_STORE_URL} className={styles.primaryCta}>
-                  <PlayGlyph />
-                  {t.hero.googlePlay}
-                </a>
+                <div className={styles.mobileButtons}>
+                  <a href={APP_STORE_URL} className={styles.primaryCta}>
+                    <AppleGlyph />
+                    {t.hero.appStore}
+                  </a>
+                  <a href={PLAY_STORE_URL} className={styles.primaryCta}>
+                    <PlayGlyph />
+                    {t.hero.googlePlay}
+                  </a>
+                </div>
+
+                <div className={styles.desktopRow}>
+                  <span className={styles.desktopRowLabel}>{t.hero.alsoFor}</span>
+                  <a href={macDownloadUrl} className={styles.pillCta}>
+                    <AppleGlyph />
+                    Mac
+                  </a>
+                  <a href={windowsDownloadUrl} className={styles.pillCta}>
+                    <WindowsGlyph />
+                    Windows
+                  </a>
+                </div>
               </div>
 
-              <div className={styles.desktopRow}>
-                <span className={styles.desktopRowLabel}>{t.hero.alsoFor}</span>
-                <a href={macDownloadUrl} className={styles.pillCta}>
-                  <AppleGlyph />
-                  Mac
-                </a>
-                <a href={windowsDownloadUrl} className={styles.pillCta}>
-                  <WindowsGlyph />
-                  Windows
-                </a>
-              </div>
-            </div>
-
-            {/* Chat preview mockup */}
-            <div className={styles.heroVisual} aria-hidden="true">
-              <div className={styles.chatCard}>
-                <div className={styles.chatHeader}>
-                  <div className={styles.chatAvatar}>{t.preview.name.charAt(0)}</div>
-                  <div className={styles.chatHeaderText}>
-                    <div className={styles.chatName}>{t.preview.name}</div>
-                    <div className={styles.chatStatus}>
-                      <span className={styles.statusDot} />
-                      {t.preview.online}
+              {/* Chat preview mockup */}
+              <div className={styles.heroVisual} aria-hidden="true">
+                <div className={styles.chatCard}>
+                  <div className={styles.chatHeader}>
+                    <div className={styles.chatAvatar}>{t.preview.name.charAt(0)}</div>
+                    <div className={styles.chatHeaderText}>
+                      <div className={styles.chatName}>{t.preview.name}</div>
+                      <div className={styles.chatStatus}>
+                        <span className={styles.statusDot} />
+                        {t.preview.online}
+                      </div>
+                    </div>
+                    <div className={styles.chatLock}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                      </svg>
                     </div>
                   </div>
-                  <div className={styles.chatLock}>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
-                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                    </svg>
+                  <div className={styles.chatBody}>
+                    <div className={`${styles.bubble} ${styles.bubbleIn}`}>
+                      {t.preview.msg1}
+                    </div>
+                    <div className={`${styles.bubble} ${styles.bubbleOut}`}>
+                      {t.preview.msg2}
+                    </div>
+                    <div className={`${styles.bubble} ${styles.bubbleIn}`}>
+                      {t.preview.msg3}
+                    </div>
+                    <div className={`${styles.bubble} ${styles.bubbleOut} ${styles.bubbleSending}`}>
+                      {t.preview.msg4}
+                    </div>
+                    <div className={`${styles.typingBubble} ${styles.typingBubbleDelayed}`}>
+                      <span className={styles.typingDot} />
+                      <span className={styles.typingDot} />
+                      <span className={styles.typingDot} />
+                    </div>
                   </div>
                 </div>
-                <div className={styles.chatBody}>
-                  <div className={`${styles.bubble} ${styles.bubbleIn}`}>
-                    {t.preview.msg1}
-                  </div>
-                  <div className={`${styles.bubble} ${styles.bubbleOut}`}>
-                    {t.preview.msg2}
-                  </div>
-                  <div className={`${styles.bubble} ${styles.bubbleIn}`}>
-                    {t.preview.msg3}
-                  </div>
-                  <div className={`${styles.bubble} ${styles.bubbleOut} ${styles.bubbleSending}`}>
-                    {t.preview.msg4}
-                  </div>
-                  <div className={`${styles.typingBubble} ${styles.typingBubbleDelayed}`}>
-                    <span className={styles.typingDot} />
-                    <span className={styles.typingDot} />
-                    <span className={styles.typingDot} />
-                  </div>
+                <div className={styles.floatBadge}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="M9 12l2 2 4-4" />
+                  </svg>
+                  <span>{t.preview.badge}</span>
                 </div>
-              </div>
-              <div className={styles.floatBadge}>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  <path d="M9 12l2 2 4-4" />
-                </svg>
-                <span>{t.preview.badge}</span>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Trust strip */}
-        <section className={styles.trustStrip}>
-          <div className={styles.trustInner}>
-            <span className={styles.trustItem}>
-              <span className={styles.trustDot} />
-              {t.trust.noData}
-            </span>
-            <span className={styles.trustItem}>
-              <span className={styles.trustDot} />
-              {t.trust.noAds}
-            </span>
-            <span className={styles.trustItem}>
-              <span className={styles.trustDot} />
-              {t.trust.noTrackers}
-            </span>
-            <span className={styles.trustItem}>
-              <span className={styles.trustDot} />
-              {t.trust.anonymous}
-            </span>
-          </div>
-        </section>
+          {/* Trust strip */}
+          <section className={styles.trustStrip}>
+            <div className={styles.trustInner}>
+              <span className={styles.trustItem}>
+                <span className={styles.trustDot} />
+                {t.trust.noData}
+              </span>
+              <span className={styles.trustItem}>
+                <span className={styles.trustDot} />
+                {t.trust.noAds}
+              </span>
+              <span className={styles.trustItem}>
+                <span className={styles.trustDot} />
+                {t.trust.noTrackers}
+              </span>
+              <span className={styles.trustItem}>
+                <span className={styles.trustDot} />
+                {t.trust.anonymous}
+              </span>
+            </div>
+          </section>
+        </div>
 
         {/* Features — bento grid */}
         <section className={styles.features}>
@@ -234,6 +332,41 @@ export default async function Home({
             </Link>
           </div>
         </section>
+        {/* FAQ */}
+        <section id="faq" className={styles.faq}>
+          <div className={styles.faqInner}>
+            <span className={styles.featuresEyebrow}>{t.faq.eyebrow}</span>
+            <h2 className={styles.sectionTitle}>
+              {t.faq.title}{" "}
+              <span className={styles.sectionTitleAccent}>{t.faq.titleAccent}</span>
+            </h2>
+            <div className={styles.faqList}>
+              {t.faq.items.map((item) => (
+                <details key={item.q} className={styles.faqItem}>
+                  <summary className={styles.faqQuestion}>
+                    <span>{item.q}</span>
+                    <svg
+                      className={styles.faqChevron}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      width="18"
+                      height="18"
+                      aria-hidden="true"
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </summary>
+                  <p className={styles.faqAnswer}>{item.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
       </main>
 
       {/* Footer */}
@@ -288,6 +421,9 @@ export default async function Home({
               </Link>
               <Link href={localizedPath(locale, "/account")} className={styles.footerLink}>
                 {dict.footer.account}
+              </Link>
+              <Link href={localizedPath(locale, "/compare")} className={styles.footerLink}>
+                {dict.footer.compare}
               </Link>
               <a href={APP_STORE_URL} className={styles.footerLink}>
                 App Store

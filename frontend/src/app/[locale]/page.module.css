@@ -120,10 +120,49 @@
 }
 
 /* ===== Hero ===== */
+/*
+ * Hero + trust strip occupy exactly one viewport minus the fixed header (body
+ * is padded by that same height), so the strip's lower border lands on the
+ * bottom edge of the screen at any height. svh (not vh) is the
+ * small viewport height — on mobile, vh measures the viewport with browser
+ * chrome retracted, which pushes the strip below the fold until you scroll.
+ * min-height, not height: on short screens the content grows instead of
+ * overflowing.
+ */
+.viewportBlock {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100svh - var(--header-height));
+}
+
 .hero {
   position: relative;
-  padding: 4rem 2rem 5rem;
+  padding: 4rem 2rem;
   overflow: hidden;
+}
+
+.viewportBlock .hero {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.viewportBlock .heroGrid {
+  width: 100%;
+}
+
+/*
+ * On short viewports the hero's own content is what stops the block collapsing
+ * to one screen, so trim its vertical padding rather than letting the strip
+ * fall below the fold. Below roughly 620px tall the content genuinely cannot
+ * fit and the page scrolls — squashing it further would cost more than it buys.
+ */
+@media (max-height: 780px) {
+  .viewportBlock .hero {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 }
 
 .heroGlow {
@@ -1032,5 +1071,80 @@
   .footerTop {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+}
+
+/* FAQ */
+.faq {
+  padding: 2rem 2rem 4rem;
+  scroll-margin-top: 64px;
+}
+
+.faqInner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.faqItem {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 0 1.25rem;
+  transition: border-color 0.2s ease;
+}
+
+.faqItem:hover {
+  border-color: var(--green-500);
+}
+
+.faqQuestion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 0;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faqQuestion::-webkit-details-marker {
+  display: none;
+}
+
+.faqChevron {
+  flex-shrink: 0;
+  color: var(--muted);
+  transition: transform 0.2s ease;
+}
+
+.faqItem[open] .faqChevron {
+  transform: rotate(180deg);
+}
+
+.faqAnswer {
+  margin: 0;
+  padding: 0 0 1.25rem;
+  color: var(--muted);
+  font-size: 0.97rem;
+  line-height: 1.65;
+  max-width: 64ch;
+}
+
+@media (max-width: 640px) {
+  .faq {
+    padding: 1.5rem 1.25rem 3rem;
+  }
+
+  .faqQuestion {
+    font-size: 0.96rem;
   }
 }

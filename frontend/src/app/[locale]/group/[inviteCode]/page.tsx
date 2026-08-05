@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import { StoreButtons } from "./StoreButtons";
 import { getDictionary } from "@/i18n/dictionaries";
 import { defaultLocale, isLocale } from "@/i18n/config";
+import { NO_INDEX } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{ locale: string; inviteCode: string }>;
@@ -14,6 +15,7 @@ const APP_STORE_ID = "6757166779";
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { inviteCode } = await params;
   return {
+    robots: NO_INDEX,
     other: {
       "apple-itunes-app": `app-id=${APP_STORE_ID}, app-argument=chattr://group/${inviteCode}`,
     },

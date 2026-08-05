@@ -1,7 +1,7 @@
 {
   "meta": {
     "homeTitle": "Chattr · Private messenger",
-    "homeDescription": "Chattr is a secure messenger for iOS. No data collection, no tracking. Just conversation."
+    "homeDescription": "Chattr is a private messenger for iPhone, Android, Mac and Windows. No ads, no trackers, no data selling. Works without a VPN."
   },
   "common": {
     "backHome": "Back to home",
@@ -73,6 +73,49 @@
       "title": "Start speaking freely.",
       "desc": "Download Chattr — setup takes less than a minute.",
       "support": "Need help? Get in touch →"
+    },
+    "faq": {
+      "eyebrow": "Questions & answers",
+      "title": "Frequently asked",
+      "titleAccent": "questions",
+      "items": [
+        {
+          "q": "What is Chattr?",
+          "a": "Chattr is a messenger built for private conversation. It runs on iPhone, Android, Mac and Windows. Chattr carries no ads, no trackers, and does not sell user data."
+        },
+        {
+          "q": "Which devices does Chattr work on?",
+          "a": "Chattr is available on iOS (iPhone and iPad), Android, macOS 11 Big Sur and later (Apple Silicon and Intel), and Windows 10 64-bit and later. Mobile versions come from the App Store and Google Play; desktop versions download from the site."
+        },
+        {
+          "q": "Is Chattr free?",
+          "a": "Yes. Chattr is free for everyone. The Chattr Pro subscription is a voluntary way to support the project, and it includes priority support directly from the development team."
+        },
+        {
+          "q": "How much does Chattr Pro cost?",
+          "a": "150 ₽ per month, or 1,500 ₽ for 12 months — the annual plan saves 17%. Payment is taken in roubles through a secure payment gateway, and you can cancel at any time."
+        },
+        {
+          "q": "How does Chattr protect my messages?",
+          "a": "Messages are encrypted in transit and on the server. Chattr does not use your conversations for advertising and does not pass them to third parties. The app contains no advertising trackers or third-party analytics."
+        },
+        {
+          "q": "Do I need a VPN to use Chattr?",
+          "a": "No. Chattr works without a VPN — the connection stays reliable even where other messengers are blocked. You just open the app and start talking."
+        },
+        {
+          "q": "Do I need a phone number to sign up?",
+          "a": "No. Registration in Chattr is anonymous — no personal details are required to create an account."
+        },
+        {
+          "q": "How do I cancel Chattr Pro?",
+          "a": "Cancel in one click from the Manage subscription page on the site. Billing stops immediately after cancellation, and there are no hidden charges."
+        },
+        {
+          "q": "How do I contact Chattr support?",
+          "a": "Email the support address listed on the Support page. We normally reply within 48 hours, and Chattr Pro subscribers are handled first."
+        }
+      ]
     }
   },
   "footer": {
@@ -86,7 +129,8 @@
     "navHeading": "Navigation",
     "pricing": "Pricing",
     "account": "Manage subscription",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "compare": "Comparisons"
   },
   "privacy": {
     "metaTitle": "Privacy Policy - Chattr",
@@ -338,5 +382,246 @@
     "openInApp": "Open in the app",
     "noApp": "Don't have the app?",
     "rights": "All rights reserved."
+  },
+  "compare": {
+    "indexMetaTitle": "Chattr compared with other messengers",
+    "indexMetaDescription": "Honest comparisons of Chattr with Signal, Telegram and WhatsApp: encryption, sign-up, and reachability on restricted networks.",
+    "indexEyebrow": "Comparisons",
+    "indexTitle": "Chattr and other",
+    "indexTitleAccent": "messengers",
+    "indexSubtitle": "We don't think Chattr wins on everything. Below are honest comparisons: where Chattr is the better choice, and where you should pick something else.",
+    "cardCta": "Read the comparison",
+    "tableHeadFeature": "Feature",
+    "tableHeadOther": "",
+    "shortAnswerLabel": "In short",
+    "chooseChattrTitle": "When to choose Chattr",
+    "chooseOtherTitle": "When to choose {other}",
+    "faqTitle": "Frequently asked questions",
+    "backToCompare": "← All comparisons",
+    "ctaTitle": "Try Chattr",
+    "ctaDesc": "Free, and setup takes under a minute.",
+    "disclaimer": "This comparison was written by the Chattr team and reflects publicly documented behaviour of each app. We aim to describe other messengers accurately — if you spot an error, please tell us.",
+    "items": {
+      "signal": {
+        "name": "Signal",
+        "metaTitle": "Chattr vs Signal: an honest comparison",
+        "metaDescription": "Chattr vs Signal: end-to-end encryption, anonymous sign-up without a phone number, and working on networks where messengers are blocked.",
+        "title": "Chattr vs",
+        "intro": "Signal is the benchmark for private messaging: end-to-end encryption by default, open source, run by a non-profit. Chattr solves a different problem — staying reachable where messengers get blocked, and asking for no personal details at sign-up.",
+        "shortAnswer": "If maximum cryptographic protection of your messages is the priority, choose Signal — it has end-to-end encryption by default and open source code. Choose Chattr if you need a connection on a network where other messengers don't work, and want to sign up without a phone number.",
+        "rows": [
+          {
+            "label": "Message encryption",
+            "chattr": "Encrypted in transit and on the server",
+            "other": "End-to-end encrypted (E2EE) by default"
+          },
+          {
+            "label": "Open source",
+            "chattr": "No",
+            "other": "Yes, client and server"
+          },
+          {
+            "label": "Sign-up",
+            "chattr": "Anonymous, no phone number",
+            "other": "Phone number required"
+          },
+          {
+            "label": "Works on blocked networks",
+            "chattr": "Yes, without a VPN",
+            "other": "Often needs a proxy or VPN"
+          },
+          {
+            "label": "Platforms",
+            "chattr": "iOS, Android, macOS, Windows",
+            "other": "iOS, Android, macOS, Windows, Linux"
+          },
+          {
+            "label": "Ads and trackers",
+            "chattr": "None",
+            "other": "None"
+          },
+          {
+            "label": "Price",
+            "chattr": "Free, optional Pro plan (150 ₽/month)",
+            "other": "Free, donation funded"
+          }
+        ],
+        "chooseChattr": [
+          "You're on a network where Signal is blocked and don't want to configure a VPN or proxy.",
+          "You don't want your messenger tied to a phone number.",
+          "You want one client across iPhone, Android, Mac and Windows with no extra setup."
+        ],
+        "chooseOther": [
+          "End-to-end encryption of your messages is a hard requirement.",
+          "You need the code to be open and independently audited.",
+          "The people you talk to are already on Signal."
+        ],
+        "faq": [
+          {
+            "q": "Does Chattr have end-to-end encryption like Signal?",
+            "a": "No. In Chattr, messages are encrypted in transit and on the server, which is not end-to-end encryption as Signal implements it. Chattr does not use your conversations for advertising and does not pass them to third parties, but Signal's protection model is stricter."
+          },
+          {
+            "q": "Is Chattr more secure than Signal?",
+            "a": "On the cryptographic model, no — Signal has end-to-end encryption by default and open source code. Chattr is stronger elsewhere: it requires no phone number to register and keeps working on networks where Signal is blocked."
+          },
+          {
+            "q": "Does Chattr need a phone number like Signal?",
+            "a": "No. Registration in Chattr is anonymous and no phone number is required. Signal asks for a phone number when you create an account."
+          },
+          {
+            "q": "Can I use Chattr and Signal at the same time?",
+            "a": "Yes. They are separate apps and do not conflict. Many people keep Signal for their most sensitive conversations and use Chattr for everyday messaging where Signal is unavailable."
+          }
+        ]
+      },
+      "telegram": {
+        "name": "Telegram",
+        "metaTitle": "Chattr vs Telegram: an honest comparison",
+        "metaDescription": "Chattr vs Telegram: how regular chats are encrypted, anonymous sign-up without a phone number, ads, and working without a VPN.",
+        "title": "Chattr vs",
+        "intro": "Telegram is a huge ecosystem: channels, bots, large groups, generous file limits. Chattr is deliberately simpler and focused on private everyday messaging that stays reachable on restricted networks.",
+        "shortAnswer": "Telegram wins on features and audience size. Choose Chattr if you don't want your account tied to a phone number, don't want ads, and need a connection on a network where Telegram is restricted. By default neither Telegram nor Chattr end-to-end encrypts regular chats.",
+        "rows": [
+          {
+            "label": "Regular chat encryption",
+            "chattr": "Encrypted in transit and on the server",
+            "other": "Encrypted in transit and on the server"
+          },
+          {
+            "label": "End-to-end encryption",
+            "chattr": "No",
+            "other": "Secret Chats only — one-to-one, opt-in"
+          },
+          {
+            "label": "Sign-up",
+            "chattr": "Anonymous, no phone number",
+            "other": "Phone number required"
+          },
+          {
+            "label": "Ads",
+            "chattr": "None",
+            "other": "Sponsored messages in public channels"
+          },
+          {
+            "label": "Works on blocked networks",
+            "chattr": "Yes, without a VPN",
+            "other": "Network dependent, often needs a proxy"
+          },
+          {
+            "label": "Platforms",
+            "chattr": "iOS, Android, macOS, Windows",
+            "other": "iOS, Android, macOS, Windows, Linux, web"
+          },
+          {
+            "label": "Channels, bots, large groups",
+            "chattr": "No",
+            "other": "Yes"
+          }
+        ],
+        "chooseChattr": [
+          "You don't want your conversations tied to a phone number.",
+          "You don't need channels and bots — just a clean messenger with no ads.",
+          "You need a connection where Telegram is restricted, without configuring a proxy."
+        ],
+        "chooseOther": [
+          "You need channels, bots, large groups or large file transfers.",
+          "Everyone you talk to is already on Telegram.",
+          "You want opt-in Secret Chats with end-to-end encryption for specific conversations."
+        ],
+        "faq": [
+          {
+            "q": "Is Chattr more private than Telegram?",
+            "a": "For regular chats the encryption models are close: in both Telegram and Chattr messages are protected in transit and on the server rather than end-to-end. Chattr is more private in other ways: sign-up needs no phone number, and the app carries no ads or third-party trackers."
+          },
+          {
+            "q": "Does Chattr have channels and bots like Telegram?",
+            "a": "No. Chattr is a messenger for personal and group conversation. There are no channels, bots or publishing tools, and that is a deliberate choice."
+          },
+          {
+            "q": "Does Chattr work where Telegram is blocked?",
+            "a": "Yes. Chattr is built to work on restricted networks and does not require a separate VPN or proxy configuration."
+          },
+          {
+            "q": "Does Chattr require a phone number?",
+            "a": "No, registration is anonymous. Telegram asks for a phone number when you create an account."
+          }
+        ]
+      },
+      "whatsapp": {
+        "name": "WhatsApp",
+        "metaTitle": "Chattr vs WhatsApp: an honest comparison",
+        "metaDescription": "Chattr vs WhatsApp: end-to-end encryption, metadata collection, signing up without a phone number, and working without a VPN.",
+        "title": "Chattr vs",
+        "intro": "WhatsApp uses end-to-end encryption by default, but it is owned by Meta and requires a phone number. Chattr collects no data for an advertising ecosystem and lets you create an account anonymously.",
+        "shortAnswer": "WhatsApp has stronger protection of message content — it is end-to-end encrypted by default. Choose Chattr if you'd rather not hand your phone number and conversation metadata to a large advertising company, and you need a connection on restricted networks.",
+        "rows": [
+          {
+            "label": "Message encryption",
+            "chattr": "Encrypted in transit and on the server",
+            "other": "End-to-end encrypted (E2EE) by default"
+          },
+          {
+            "label": "Owner",
+            "chattr": "Independent team",
+            "other": "Meta"
+          },
+          {
+            "label": "Sign-up",
+            "chattr": "Anonymous, no phone number",
+            "other": "Phone number required"
+          },
+          {
+            "label": "Metadata collection",
+            "chattr": "Minimal",
+            "other": "Substantial, part of the Meta ecosystem"
+          },
+          {
+            "label": "Works on blocked networks",
+            "chattr": "Yes, without a VPN",
+            "other": "Often needs a VPN"
+          },
+          {
+            "label": "Platforms",
+            "chattr": "iOS, Android, macOS, Windows",
+            "other": "iOS, Android, macOS, Windows, web"
+          },
+          {
+            "label": "Ads and trackers",
+            "chattr": "None",
+            "other": "Advertising across linked Meta services"
+          }
+        ],
+        "chooseChattr": [
+          "You don't want your messenger tied to Meta's advertising ecosystem.",
+          "You aren't willing to hand over a phone number just to register.",
+          "You need a connection on a network where WhatsApp is restricted."
+        ],
+        "chooseOther": [
+          "End-to-end encryption of message content is a hard requirement.",
+          "You need to reach people who use no other messenger.",
+          "You rely on voice and video calls with large numbers of participants."
+        ],
+        "faq": [
+          {
+            "q": "Is Chattr more secure than WhatsApp?",
+            "a": "For message content, no — WhatsApp has end-to-end encryption on by default. Chattr wins on a different kind of privacy: anonymous sign-up with no phone number, minimal metadata, and no link to an advertising ecosystem."
+          },
+          {
+            "q": "Does Chattr collect metadata like WhatsApp?",
+            "a": "Chattr collects the minimum operational data needed to deliver messages and does not use it for advertising. The details are set out in the privacy policy."
+          },
+          {
+            "q": "Does Chattr require a phone number?",
+            "a": "No. Unlike WhatsApp, Chattr does not require a phone number — registration is anonymous."
+          },
+          {
+            "q": "Does Chattr work without a VPN where WhatsApp is blocked?",
+            "a": "Yes. Chattr is built to work on restricted networks and does not require a separate VPN."
+          }
+        ]
+      }
+    },
+    "ctaButton": "Download Chattr"
   }
 }

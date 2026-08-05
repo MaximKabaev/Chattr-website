@@ -10,6 +10,9 @@
   --surface: #f0f2f5;
   --surface-hover: #e4e7ec;
   --border: #e2e4e9;
+
+  /* Fixed site header height — body offsets by it, the hero subtracts it. */
+  --header-height: 64px;
 }
 
 :root[data-theme="dark"] {
@@ -40,7 +43,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.2s ease, color 0.2s ease;
-  padding-top: 64px;
+  padding-top: var(--header-height);
 }
 
 * {

@@ -4,6 +4,7 @@ import DownloadBody from "../_components/DownloadBody";
 import { getDesktopRelease } from "@/lib/desktopRelease";
 import { getDictionary } from "@/i18n/dictionaries";
 import { defaultLocale, isLocale, localizedPath } from "@/i18n/config";
+import { alternatesFor } from "@/lib/seo";
 
 export const revalidate = 300;
 
@@ -20,11 +21,13 @@ export async function generateMetadata({
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { locale, platform } = await params;
-  const t = getDictionary(isLocale(locale) ? locale : defaultLocale).download;
+  const resolved = isLocale(locale) ? locale : defaultLocale;
+  const t = getDictionary(resolved).download;
   const label = platform === "windows" ? "Windows" : "macOS";
   return {
     title: t.platformMetaTitle.replace("{platform}", label),
     description: t.platformMetaDescription.replace("{platform}", label),
+    alternates: alternatesFor(resolved, `/download/${platform}`),
   };
 }
 

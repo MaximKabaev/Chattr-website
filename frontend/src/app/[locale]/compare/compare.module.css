@@ -1,0 +1,361 @@
+.page {
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: 2.5rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.backLink:hover {
+  color: var(--foreground);
+}
+
+/* Hero */
+.hero {
+  margin-bottom: 2.5rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green-500);
+}
+
+.title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  margin: 0 0 1.25rem;
+}
+
+.titleAccent {
+  background: var(--green-500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.intro {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.06rem;
+  line-height: 1.7;
+  max-width: 66ch;
+}
+
+/* Short answer callout */
+.shortAnswer {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--green-500);
+  border-radius: 14px;
+  background: var(--surface);
+  padding: 1.4rem 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.shortAnswerLabel {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--green-600);
+  margin-bottom: 0.5rem;
+}
+
+:global(html[data-theme="dark"]) .shortAnswerLabel {
+  color: var(--green-400);
+}
+
+.shortAnswerText {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+/* Comparison table */
+.tableWrap {
+  overflow-x: auto;
+  margin-bottom: 3rem;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.table thead th {
+  text-align: left;
+  padding: 1rem 1.15rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.table tbody th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.table tbody th,
+.table tbody td {
+  padding: 0.95rem 1.15rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.table tbody tr:last-child th,
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.cellChattr {
+  font-weight: 600;
+}
+
+/* When to choose which */
+.chooseGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.chooseCard {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  padding: 1.5rem;
+}
+
+.chooseCardChattr {
+  border-color: var(--green-500);
+}
+
+.chooseTitle {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.chooseList {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* FAQ */
+.faqSection {
+  margin-bottom: 3rem;
+}
+
+.faqHeading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.25rem;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.faqItem {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 0 1.25rem;
+  transition: border-color 0.2s ease;
+}
+
+.faqItem:hover {
+  border-color: var(--green-500);
+}
+
+.faqQuestion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faqQuestion::-webkit-details-marker {
+  display: none;
+}
+
+.faqChevron {
+  flex-shrink: 0;
+  color: var(--muted);
+  transition: transform 0.2s ease;
+}
+
+.faqItem[open] .faqChevron {
+  transform: rotate(180deg);
+}
+
+.faqAnswer {
+  margin: 0;
+  padding: 0 0 1.25rem;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.65;
+  max-width: 64ch;
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--surface);
+  padding: 2.5rem 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.ctaTitle {
+  margin: 0 0 0.6rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.ctaDesc {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 0.8rem 1.75rem;
+  border-radius: 999px;
+  background: var(--green-500);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.98rem;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.ctaButton:hover {
+  opacity: 0.9;
+}
+
+.disclaimer {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* Index page cards */
+.cardGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.card {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  padding: 1.6rem 1.75rem;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--green-500);
+  transform: translateY(-2px);
+}
+
+.cardTitle {
+  margin: 0 0 0.6rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.cardDesc {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.cardCta {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--green-600);
+}
+
+:global(html[data-theme="dark"]) .cardCta {
+  color: var(--green-400);
+}
+
+@media (max-width: 720px) {
+  .main {
+    padding: 2rem 1.25rem 4rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .chooseGrid {
+    grid-template-columns: 1fr;
+  }
+}

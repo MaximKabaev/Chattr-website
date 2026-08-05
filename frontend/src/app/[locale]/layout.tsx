@@ -5,6 +5,7 @@ import SiteHeader from "./_components/SiteHeader";
 import ScrollReset from "./_components/ScrollReset";
 import { getDictionary } from "@/i18n/dictionaries";
 import { defaultLocale, isLocale, locales, type Locale } from "@/i18n/config";
+import { SITE_URL, absoluteUrl } from "@/lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,13 +33,36 @@ export async function generateMetadata({
   params: Promise<LocaleParams>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const dict = getDictionary(resolveLocale(locale));
+  const resolved = resolveLocale(locale);
+  const dict = getDictionary(resolved);
   return {
+    metadataBase: new URL(SITE_URL),
     title: dict.meta.homeTitle,
     description: dict.meta.homeDescription,
+    applicationName: "Chattr",
     icons: {
       icon: "/app-icon.png",
       apple: "/apple-touch-icon.png",
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+    },
+    openGraph: {
+      type: "website",
+      siteName: "Chattr",
+      locale: resolved === "ru" ? "ru_RU" : "en_US",
+      title: dict.meta.homeTitle,
+      description: dict.meta.homeDescription,
+      url: absoluteUrl(resolved, "/"),
+      images: [{ url: "/app-icon.png", width: 512, height: 512, alt: "Chattr" }],
+    },
+    twitter: {
+      card: "summary",
+      title: dict.meta.homeTitle,
+      description: dict.meta.homeDescription,
+      images: ["/app-icon.png"],
     },
   };
 }
