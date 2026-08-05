@@ -72,6 +72,13 @@ export default function DownloadBody({ release, locale, t }: Props) {
   const macArmMeta = versionMeta(release?.macArm64);
   const macIntelMeta = versionMeta(release?.macIntel);
 
+  // Route clicks through the server-side redirector so downloads can be counted
+  // (anonymous PostHog event, no browser tracking) — see /api/download/[platform].
+  const downloadHref = (
+    platform: "windows" | "macArm64" | "macIntel",
+    asset: { url: string } | undefined | null,
+  ) => (asset ? `/api/download/${platform}` : null);
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -93,7 +100,7 @@ export default function DownloadBody({ release, locale, t }: Props) {
               subtitle={t.macSubtitle}
               size={macArmSize}
               versionMeta={macArmMeta}
-              href={release?.macArm64?.url ?? null}
+              href={downloadHref("macArm64", release?.macArm64)}
               icon={<AppleGlyph />}
               labels={cardLabels}
             />
@@ -103,7 +110,7 @@ export default function DownloadBody({ release, locale, t }: Props) {
               subtitle={t.macIntelSubtitle}
               size={macIntelSize}
               versionMeta={macIntelMeta}
-              href={release?.macIntel?.url ?? null}
+              href={downloadHref("macIntel", release?.macIntel)}
               icon={<AppleGlyph />}
               labels={cardLabels}
             />
@@ -113,7 +120,7 @@ export default function DownloadBody({ release, locale, t }: Props) {
               subtitle={t.windowsSubtitle}
               size={winSize}
               versionMeta={winMeta}
-              href={release?.windows?.url ?? null}
+              href={downloadHref("windows", release?.windows)}
               icon={<WindowsGlyph />}
               labels={cardLabels}
             />

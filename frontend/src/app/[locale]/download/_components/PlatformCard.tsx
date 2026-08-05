@@ -72,7 +72,6 @@ export default function PlatformCard({
       onClick={(e) => {
         if (!available) e.preventDefault();
       }}
-      download={available ? "" : undefined}
     >
       {recommended && <span className={styles.recommendedBadge}>{labels.recommended}</span>}
       <div className={styles.platformIcon} aria-hidden="true">

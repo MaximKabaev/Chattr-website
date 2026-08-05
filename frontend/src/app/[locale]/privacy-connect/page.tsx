@@ -1,28 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import styles from "./privacy.module.css";
+import styles from "../privacy/privacy.module.css";
 import { getDictionary } from "@/i18n/dictionaries";
 import { defaultLocale, isLocale, localizedPath } from "@/i18n/config";
-import { alternatesFor } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const resolved = isLocale(locale) ? locale : defaultLocale;
-  const t = getDictionary(resolved).privacy;
-  return {
-    title: t.metaTitle,
-    description: t.metaDescription,
-    alternates: alternatesFor(resolved, "/privacy"),
-  };
+  const t = getDictionary(isLocale(locale) ? locale : defaultLocale).privacyConnect;
+  return { title: t.metaTitle, description: t.metaDescription };
 }
 
-export default async function PrivacyPolicy({ params }: Props) {
+export default async function PrivacyConnect({ params }: Props) {
   const { locale: raw } = await params;
   const locale = isLocale(raw) ? raw : defaultLocale;
   const dict = getDictionary(locale);
-  const t = dict.privacy;
+  const t = dict.privacyConnect;
 
   return (
     <div className={styles.page}>
@@ -40,13 +34,33 @@ export default async function PrivacyPolicy({ params }: Props) {
         </section>
 
         <section className={styles.section}>
+          <h2>{t.noLogsTitle}</h2>
+          <p>{t.noLogsText}</p>
+        </section>
+
+        <section className={styles.section}>
           <h2>{t.collectionTitle}</h2>
           <p>{t.collectionText}</p>
         </section>
 
         <section className={styles.section}>
-          <h2>{t.storageTitle}</h2>
-          <p>{t.storageText}</p>
+          <h2>{t.paymentTitle}</h2>
+          <p>{t.paymentText}</p>
+        </section>
+
+        <section className={styles.section}>
+          <h2>{t.usageTitle}</h2>
+          <p>{t.usageText}</p>
+        </section>
+
+        <section className={styles.section}>
+          <h2>{t.thirdPartyTitle}</h2>
+          <p>{t.thirdPartyText}</p>
+        </section>
+
+        <section className={styles.section}>
+          <h2>{t.retentionTitle}</h2>
+          <p>{t.retentionText}</p>
         </section>
 
         <section className={styles.section}>
@@ -55,8 +69,8 @@ export default async function PrivacyPolicy({ params }: Props) {
         </section>
 
         <section className={styles.section}>
-          <h2>{t.retentionTitle}</h2>
-          <p>{t.retentionText}</p>
+          <h2>{t.rightsTitle}</h2>
+          <p>{t.rightsText}</p>
         </section>
 
         <section className={styles.section}>
