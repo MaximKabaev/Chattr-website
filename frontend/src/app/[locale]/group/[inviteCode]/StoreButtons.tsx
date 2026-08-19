@@ -18,7 +18,17 @@ function detectPlatform(): Platform {
   return "unknown";
 }
 
-export function StoreButtons() {
+interface StoreButtonsProps {
+  /** Copied to the clipboard when a store button is tapped — carries a referral
+   *  code across the App Store install gap, where the link itself cannot follow. */
+  copyText?: string;
+  /** Overrides the Google Play target — the VPN referral flow lives in Chattr
+   *  Connect on Android, not the messenger, and its listing URL carries the
+   *  install-referrer payload. */
+  playStoreUrl?: string;
+}
+
+export function StoreButtons({ copyText, playStoreUrl }: StoreButtonsProps = {}) {
   const params = useParams();
   const rawLocale = typeof params.locale === "string" ? params.locale : defaultLocale;
   const locale: Locale = isLocale(rawLocale) ? rawLocale : defaultLocale;
@@ -30,9 +40,17 @@ export function StoreButtons() {
     setPlatform(detectPlatform());
   }, []);
 
+  const handleClick = () => {
+    if (copyText) {
+      navigator.clipboard?.writeText(copyText).catch(() => {});
+    }
+  };
+
+  const playUrl = playStoreUrl ?? PLAY_STORE_URL;
+
   if (platform === "android") {
     return (
-      <a href={PLAY_STORE_URL} className={styles.storeButton}>
+      <a href={playUrl} className={styles.storeButton} onClick={handleClick}>
         {t.googlePlay}
       </a>
     );
@@ -40,7 +58,7 @@ export function StoreButtons() {
 
   if (platform === "ios") {
     return (
-      <a href={APP_STORE_URL} className={styles.storeButton}>
+      <a href={APP_STORE_URL} className={styles.storeButton} onClick={handleClick}>
         {t.appStore}
       </a>
     );
@@ -49,10 +67,10 @@ export function StoreButtons() {
   // Unknown platform — show both
   return (
     <div className={styles.storeLinks}>
-      <a href={APP_STORE_URL} className={styles.storeButton}>
+      <a href={APP_STORE_URL} className={styles.storeButton} onClick={handleClick}>
         {t.appStore}
       </a>
-      <a href={PLAY_STORE_URL} className={styles.storeButton}>
+      <a href={playUrl} className={styles.storeButton} onClick={handleClick}>
         {t.googlePlay}
       </a>
     </div>

@@ -416,7 +416,7 @@
     "codeLabel": "Invite code",
     "copy": "Copy code",
     "copied": "Copied",
-    "howTo": "Open this link on a phone with Chattr installed and the code is applied automatically. Installing fresh? Enter the code when you buy a subscription.",
+    "howTo": "Open this link on a phone with Chattr installed and the code is applied automatically. Installing fresh? Tapping a download button copies the code \u2014 the app will offer to paste it when you buy a subscription.",
     "invalid": "This invite link is invalid or no longer active. You can still download Chattr below.",
     "openInApp": "Open in the app",
     "noApp": "Don't have the app?",

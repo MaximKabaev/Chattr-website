@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import styles from "./page.module.css";
 import { StoreButtons } from "../../group/[inviteCode]/StoreButtons";
 import { CopyCode } from "./CopyCode";
+import { CopyLink } from "./CopyLink";
 import { getDictionary } from "@/i18n/dictionaries";
 import { defaultLocale, isLocale } from "@/i18n/config";
 import { NO_INDEX } from "@/lib/seo";
@@ -13,6 +14,9 @@ interface PageProps {
 }
 
 const APP_STORE_ID = "6757166779";
+
+// On Android the VPN referral flow lives in Chattr Connect, not the messenger.
+const CONNECT_PACKAGE = "app.arcchat.connect";
 
 // Mirrors the backend's Crockford-ish base32 alphabet loosely; anything outside
 // this shape is garbage and never hits the API.
@@ -66,6 +70,12 @@ export default async function ReferralInvitePage({ params }: PageProps) {
   const invalid = validation !== null && !validation.valid;
   const referrerName = validation?.referrerName ?? null;
 
+  // The Play install-referrer carries `chattr_ref=CODE` through the store install,
+  // so a fresh Android install recovers the code with no clipboard involved.
+  const playStoreUrl = `https://play.google.com/store/apps/details?id=${CONNECT_PACKAGE}&referrer=${encodeURIComponent(`chattr_ref=${code}`)}`;
+  // Chrome intent syntax: open Chattr Connect if installed, else its Play listing.
+  const androidOpenHref = `intent://chattr-app.com/ref/${encodeURIComponent(code)}#Intent;scheme=https;package=${CONNECT_PACKAGE};S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -91,15 +101,23 @@ export default async function ReferralInvitePage({ params }: PageProps) {
             <CopyCode code={code} copyLabel={t.copy} copiedLabel={t.copied} />
             <p className={styles.howTo}>{t.howTo}</p>
 
-            <a href={`chattr://ref/${encodeURIComponent(code)}`} className={styles.openButton}>
+            <CopyLink
+              href={`chattr://ref/${encodeURIComponent(code)}`}
+              androidHref={androidOpenHref}
+              copyText={code}
+              className={styles.openButton}
+            >
               {t.openInApp}
-            </a>
+            </CopyLink>
           </>
         )}
 
         <p className={styles.hint}>{t.noApp}</p>
 
-        <StoreButtons />
+        <StoreButtons
+          copyText={invalid ? undefined : code}
+          playStoreUrl={invalid ? undefined : playStoreUrl}
+        />
       </main>
 
       <footer className={styles.footer}>
