@@ -4,7 +4,12 @@
     "details": [
       {
         "appID": "ZJ78K39LD9.app.arc-chat",
-        "paths": ["/invite/*", "/group/*", "/link/*"]
+        "paths": [
+          "/invite/*",
+          "/group/*",
+          "/link/*",
+          "/ref/*"
+        ]
       }
     ]
   }

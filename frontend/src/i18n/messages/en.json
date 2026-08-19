@@ -410,6 +410,18 @@
     "noApp": "Don't have the app?",
     "rights": "All rights reserved."
   },
+  "referral": {
+    "invited": "You've been invited to Chattr",
+    "invitedBy": "invites you to Chattr",
+    "codeLabel": "Invite code",
+    "copy": "Copy code",
+    "copied": "Copied",
+    "howTo": "Open this link on a phone with Chattr installed and the code is applied automatically. Installing fresh? Enter the code when you buy a subscription.",
+    "invalid": "This invite link is invalid or no longer active. You can still download Chattr below.",
+    "openInApp": "Open in the app",
+    "noApp": "Don't have the app?",
+    "rights": "All rights reserved."
+  },
   "compare": {
     "indexMetaTitle": "Chattr compared with other messengers",
     "indexMetaDescription": "Honest comparisons of Chattr with Signal, Telegram and WhatsApp: encryption, sign-up, and reachability on restricted networks.",
